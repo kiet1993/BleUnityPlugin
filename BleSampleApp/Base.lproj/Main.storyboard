@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMx-vr-DFG">
+                                <rect key="frame" x="325" y="64" width="69" height="30"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <state key="normal" title="Stop scan">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnStopScanTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nPH-2r-vqv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vV-IS-GTC">
+                                <rect key="frame" x="20" y="64" width="71" height="30"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <state key="normal" title="Start scan">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnStartScanTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eb2-CB-euE"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List ZEAL-LE0 devices:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6id-Tf-VHX">
+                                <rect key="frame" x="20" y="104" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ePC-i2-XJk">
+                                <rect key="frame" x="20" y="134.5" width="374" height="130"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="kn5-YD-1Fj"/>
+                                </constraints>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6g5-vw-2rT">
+                                <rect key="frame" x="20" y="274.5" width="374" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blood Pressure data:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dJQ-FT-qXW">
+                                <rect key="frame" x="20" y="284.5" width="158" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dJQ-FT-qXW" firstAttribute="top" secondItem="6g5-vw-2rT" secondAttribute="bottom" constant="10" id="464-ec-bQ7"/>
+                            <constraint firstItem="6g5-vw-2rT" firstAttribute="top" secondItem="ePC-i2-XJk" secondAttribute="bottom" constant="10" id="A4P-jM-sHd"/>
+                            <constraint firstItem="0vV-IS-GTC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Cqm-oh-sNo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mMx-vr-DFG" secondAttribute="trailing" constant="20" id="FXT-N0-oZL"/>
+                            <constraint firstItem="6g5-vw-2rT" firstAttribute="trailing" secondItem="ePC-i2-XJk" secondAttribute="trailing" id="KQ7-RA-ruT"/>
+                            <constraint firstItem="ePC-i2-XJk" firstAttribute="top" secondItem="6id-Tf-VHX" secondAttribute="bottom" constant="10" id="PxC-Tm-5OV"/>
+                            <constraint firstItem="ePC-i2-XJk" firstAttribute="trailing" secondItem="mMx-vr-DFG" secondAttribute="trailing" id="SU4-SS-hdV"/>
+                            <constraint firstItem="6id-Tf-VHX" firstAttribute="top" secondItem="0vV-IS-GTC" secondAttribute="bottom" constant="10" id="SzA-Zl-QXZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dJQ-FT-qXW" secondAttribute="trailing" constant="20" id="Usc-So-332"/>
+                            <constraint firstItem="6id-Tf-VHX" firstAttribute="trailing" secondItem="mMx-vr-DFG" secondAttribute="trailing" id="Yrd-Y4-1bg"/>
+                            <constraint firstItem="dJQ-FT-qXW" firstAttribute="leading" secondItem="ePC-i2-XJk" secondAttribute="leading" id="ZKT-yS-Q9I"/>
+                            <constraint firstItem="0vV-IS-GTC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Zo9-8S-r2O"/>
+                            <constraint firstItem="6g5-vw-2rT" firstAttribute="leading" secondItem="ePC-i2-XJk" secondAttribute="leading" id="bAj-E1-l5L"/>
+                            <constraint firstItem="mMx-vr-DFG" firstAttribute="centerY" secondItem="0vV-IS-GTC" secondAttribute="centerY" id="dsq-Mz-B7y"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dJQ-FT-qXW" secondAttribute="bottom" constant="10" id="lM8-Kx-C58"/>
+                            <constraint firstItem="ePC-i2-XJk" firstAttribute="leading" secondItem="0vV-IS-GTC" secondAttribute="leading" id="pvZ-aR-mww"/>
+                            <constraint firstItem="6id-Tf-VHX" firstAttribute="leading" secondItem="0vV-IS-GTC" secondAttribute="leading" id="qgE-Pi-C63"/>
+                            <constraint firstItem="mMx-vr-DFG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0vV-IS-GTC" secondAttribute="trailing" constant="5" id="yX3-hW-fY6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="labelDiscoverDevice" destination="6g5-vw-2rT" id="KmE-MP-IRC"/>
+                        <outlet property="labelResult" destination="dJQ-FT-qXW" id="9tX-PP-MfG"/>
+                        <outlet property="tableviewDevices" destination="ePC-i2-XJk" id="JT2-To-OXA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-742" y="-48"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

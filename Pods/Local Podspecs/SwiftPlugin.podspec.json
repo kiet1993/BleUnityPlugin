@@ -1,0 +1,20 @@
+{
+  "name": "SwiftPlugin",
+  "version": "0.0.1",
+  "summary": "iOS SDK for Bluetooth connection",
+  "description": "iOS SDK for Bluetooth connection, including example app",
+  "homepage": "https://github.com/kiet1993/",
+  "license": "MIT",
+  "authors": "kietlt",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "swift_versions": "5.0",
+  "source": {
+    "git": "https://github.com/peteranny/HelloWorldSDK.git",
+    "tag": "0.0.1"
+  },
+  "source_files": "SwiftPlugin/**/*.{h,m,swift}",
+  "public_header_files": "SwiftPlugin/**/*.h",
+  "swift_version": "5.0"
+}

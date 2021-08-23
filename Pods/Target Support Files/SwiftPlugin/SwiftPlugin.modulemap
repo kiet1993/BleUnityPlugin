@@ -1,0 +1,6 @@
+framework module SwiftPlugin {
+  umbrella header "SwiftPlugin-umbrella.h"
+
+  export *
+  module * { export * }
+}
