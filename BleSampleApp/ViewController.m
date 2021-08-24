@@ -24,6 +24,7 @@
     // Do any additional setup after loading the view.
     deviceList = [[NSMutableArray alloc] init];
     bleManager = [OhqBluetoothManager sharedInstance];
+    [bleManager initBleManager];
     bleManager.delegate = self;
     self.tableviewDevices.dataSource = self;
     self.tableviewDevices.delegate = self;
@@ -64,16 +65,28 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CBPeripheral * model = deviceList[indexPath.row];
-    [bleManager connectToDeviceWith:model.identifier.UUIDString];
+    [bleManager connectToScanDeviceWith:model.identifier.UUIDString];
 }
 #pragma mark - OhqBluetoothManagerDelegate delegate methods
 
-- (void)didConnectToDeviceWith:(BleConnectResponse)result {
+- (void)didBleManagerChangeStateWith:(BleManagerState)result {
     switch (result) {
-        case BleConnectResponseSuccess:
+        case BleManagerStatePoweredOn:
+            [deviceList removeAllObjects];
+            [deviceList addObjectsFromArray: [bleManager retrieveConnectedDevices]];
+            [self.tableviewDevices reloadData];
+            break;
+        case BleManagerStatePoweredOff:
+            NSLog(@"BleManagerStatePoweredOff");
+            break;
+    }
+}
+- (void)didConnectPeripheralWith:(BleConnectDeviceResponse)state {
+    switch (state) {
+        case BleConnectDeviceResponseSuccess:
             self.labelResult.text = @"Connect device success";
             break;
-        case BleConnectResponseFailed:
+        case BleConnectDeviceResponseFailed:
             self.labelResult.text = @"Connect device failed";
             break;
     }

@@ -125,8 +125,8 @@
 
     if (selectedPeripheral != nil) {
         
-        NSData *data = [code dataUsingEncoding:NSUTF8StringEncoding];
-        [self.ourPeripheral writeValue:data forCharacteristic:characteristic type:CBCharacteristicWriteWithResponse];
+//        NSData *data = [code dataUsingEncoding:NSUTF8StringEncoding];
+//        [self.ourPeripheral writeValue:data forCharacteristic:characteristic type:CBCharacteristicWriteWithResponse];
     }
 }
 
