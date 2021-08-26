@@ -244,6 +244,17 @@ didDiscoverServices:(NSError *)error
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral
+ didModifyServices:(NSArray<CBService *> *)invalidatedServices
+{
+    CBUUID *uuid = [CBUUID UUIDWithString:SERVICE_UUID];
+    for (CBService *service in invalidatedServices) {
+        if (service.UUID == uuid) {
+            [peripheral discoverServices:@[uuid]];
+        }
+    }
+}
+
+- (void)peripheral:(CBPeripheral *)peripheral
 didDiscoverCharacteristicsForService:(CBService *)service
              error:(NSError *)error
 {
