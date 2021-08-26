@@ -20,7 +20,7 @@
     NSArray<CBPeripheral *> *connectedDevices;
     NSTimer * timer;
     int countTime;
-    BleState state;
+    BleState processingState;
 }
 
 @property (nonatomic, strong) CBCentralManager *centralManager;
@@ -52,7 +52,7 @@
     if(self) {
         peripherals = [[NSMutableArray alloc] init];
         countTime = 0;
-        state = BleStateNone;
+        processingState = BleStateNone;
     }
     return self;
 }
@@ -75,7 +75,7 @@
     }
  
     [self.centralManager cancelPeripheralConnection:connectedPeripheral];
-    state = BleStateNone;
+    processingState = BleStateNone;
 }
 
 - (void)initBleManager
@@ -179,19 +179,19 @@
 
 - (BleResponse)bleResponseStringToEnum:(NSString *) response
 {
-    if ([response isEqualToString:@"WUP"]) {
+    if ([response containsString:@"WUP"]) {
         return BleResponseChangeNormalMode;
-    } else if ([response isEqualToString:@"OFF"]) {
+    } else if ([response containsString:@"OFF"]) {
         return BleResponsePowerOff;
-    } else if ([response isEqualToString:@"WAI"]) {
+    } else if ([response containsString:@"WAI"]) {
         return BleResponseStandBy;
-    } else if ([response isEqualToString:@"COM"]) {
-        return BleResponseConnect;
-    } else if ([response isEqualToString:@"ERR"]) {
+    } else if ([response containsString:@"COM"]) {
+        return BleResponseReadyForMeasure;
+    } else if ([response containsString:@"ERR"]) {
         return BleResponseError;
-    } else if ([response isEqualToString:@"rx"]) {
+    } else if ([response containsString:@"rx"]) {
         return BleResponseBloodPressureResult1;
-    } else if ([response isEqualToString:@"ra"]) {
+    } else if ([response containsString:@"ra"]) {
         return BleResponseBloodPressureResult2;
     }
     return  BleResponseUnknown;
@@ -201,29 +201,44 @@
 {
     NSString *orderString = [self bleOrderToString:order];
     NSData *data = [orderString  dataUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"%@", [NSString stringWithFormat:@"writeData %@", orderString]);
     [self.connectedPeripheral writeValue:data forCharacteristic:self.transferCharacteristic type:CBCharacteristicWriteWithoutResponse];
 }
 
 - (void) handleDataResponse:(NSString *) responseString
 {
+    NSLog(@"%@", [NSString stringWithFormat:@"handleDataResponse %@", responseString]);
     BleResponse response = [self bleResponseStringToEnum: responseString];
     switch (response) {
-        case BleResponseUnknown:
-            break;
         case BleResponseChangeNormalMode:
+            processingState = BleStateNormal;
+            [self writeData:BleOrderSetup];
             break;
         case BleResponsePowerOff:
+            processingState = BleStateOff;
+            [self cleanup];
             break;
         case BleResponseStandBy:
+            processingState = BleStateWait;
+            [self writeData:BleOrderSetup];
             break;
-        case BleResponseConnect:
-            [self writeData: BleOrderMeasureBloodPressure];
+        case BleResponseReadyForMeasure:
+            if (processingState == BleStateWait)
+            {
+                [self writeData:BleOrderPowerOff];
+            } else {
+                [self writeData:BleOrderMeasureBloodPressure];
+            }
+            processingState = BleStateReady;
             break;
         case BleResponseError:
+            processingState = BleStateError;
+            [self writeData:BleOrderPowerOff];
+            [self cleanup];
             break;
         case BleResponseBloodPressureResult1:
-            break;
         case BleResponseBloodPressureResult2:
+        case BleResponseUnknown:
             break;
     }
 }
@@ -350,9 +365,11 @@ didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic
         [self cleanup];
         return;
     }
-    NSString *stringFromData = [[[NSString alloc] initWithData:characteristic.value encoding:NSUTF8StringEncoding] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *stringFromData = [[NSString alloc] initWithData:characteristic.value encoding:NSUTF8StringEncoding];
     
-    [self handleDataResponse: stringFromData];
+    NSString *trimmedString = [stringFromData stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    [self handleDataResponse: trimmedString];
          
     // Have we got everything we need?
     
@@ -375,7 +392,7 @@ didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
      
     if (characteristic.isNotifying) {
         NSLog(@"Notification began on %@", characteristic);
-        if (state == BleStateNone) {
+        if (processingState == BleStateNone) {
             [self writeData:BleOrderSetup];
         }
     } else {

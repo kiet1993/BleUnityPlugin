@@ -19,7 +19,7 @@ typedef enum BleResponse {
     BleResponseChangeNormalMode, //@"WUP"
     BleResponsePowerOff, //@"OFF"
     BleResponseStandBy, //@"WAI"
-    BleResponseConnect, //@"COM"
+    BleResponseReadyForMeasure, //@"COM"
     BleResponseError,//@"ERR"
     BleResponseBloodPressureResult1,//@"rx"
     BleResponseBloodPressureResult2 //@"ra"
@@ -27,8 +27,8 @@ typedef enum BleResponse {
 
 typedef enum BleState {
     BleStateNone,
-    BleStateStandBy,
-    BleStateConnect,
+    BleStateNormal,
+    BleStateReady,
     BleStateBlood,
     BleStateWait,
     BleStateOff,
