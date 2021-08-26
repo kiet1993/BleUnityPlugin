@@ -13,6 +13,7 @@
 
 #import "OhqBluetoothManager.h"
 #import <Foundation/Foundation.h>
+#import "Model/Enum.h"
 
 @interface OhqBluetoothManager () <CBCentralManagerDelegate, CBPeripheralDelegate> {
     NSMutableArray * peripherals;
@@ -152,8 +153,7 @@
 
     if (connectedPeripheral != nil) {
         
-//        NSData *data = [code dataUsingEncoding:NSUTF8StringEncoding];
-//        [self.ourPeripheral writeValue:data forCharacteristic:characteristic type:CBCharacteristicWriteWithResponse];
+        
     }
 }
 
@@ -166,7 +166,24 @@
     }
 }
 
+- (NSString *)bleOrderToString: (BleOrder)order
+{
+    switch (order) {
+        case BleOrderSetup:
+            return @"M6";
+        case BleOrderMeasureBloodPressure:
+            return  @"MA";
+        case BleOrderPowerOff:
+            return @"MB";
+    }
+}
 
+- (void)witeData:(BleOrder)order
+{
+    NSString *orderString = [self bleOrderToString:order];
+    NSData *data = [orderString  dataUsingEncoding:NSUTF8StringEncoding];
+    [self.connectedPeripheral writeValue:data forCharacteristic:self.transferCharacteristic type:CBCharacteristicWriteWithResponse];
+}
 
 #pragma mark - CBCentralManager delegate methods
 
@@ -312,6 +329,7 @@ didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
      
     if (characteristic.isNotifying) {
         NSLog(@"Notification began on %@", characteristic);
+        [self witeData:BleOrderSetup];
     } else {
         // Notification has stopped
         [self cleanup];

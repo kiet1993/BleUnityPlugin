@@ -7,23 +7,24 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum BleOrder: NSString {
-    BleOrderSetup = @"M6",
-    BleOrderMeasureBloodPressure = @"MA",
-    BleOrderPowerOff = @"MB"
+typedef enum BleOrder {
+    BleOrderSetup,
+    BleOrderMeasureBloodPressure,
+    BleOrderPowerOff
+    
 } BleOrder;
 
-typedef enum BleResponse: NSString {
-    BleResponseChangeNormalMode = @"WUP",
-    BleResponsePowerOff = @"OFF",
-    BleResponseStandBy = @"WAI",
-    BleResponseConnect = @"COM",
-    BleResponseError = @"ERR",
-    BleResponseBloodPressureResult1 = @"rx",
-    BleResponseBloodPressureResult2 = @"ra"
+typedef enum BleResponse {
+    BleResponseChangeNormalMode, //@"WUP"
+    BleResponsePowerOff, //@"OFF"
+    BleResponseStandBy, //@"WAI"
+    BleResponseConnect, //@"COM"
+    BleResponseError,//@"ERR"
+    BleResponseBloodPressureResult1,//@"rx"
+    BleResponseBloodPressureResult2 //@"ra"
 } BleResponse;
 
-typedef enum BleState: NSString {
+typedef enum BleState {
     BleStateNone,
     BleStateStandBy,
     BleStateConnect,
