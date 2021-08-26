@@ -15,6 +15,7 @@ typedef enum BleOrder {
 } BleOrder;
 
 typedef enum BleResponse {
+    BleResponseUnknown,
     BleResponseChangeNormalMode, //@"WUP"
     BleResponsePowerOff, //@"OFF"
     BleResponseStandBy, //@"WAI"

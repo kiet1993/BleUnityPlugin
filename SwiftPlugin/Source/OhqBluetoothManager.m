@@ -20,6 +20,7 @@
     NSArray<CBPeripheral *> *connectedDevices;
     NSTimer * timer;
     int countTime;
+    BleState state;
 }
 
 @property (nonatomic, strong) CBCentralManager *centralManager;
@@ -51,6 +52,7 @@
     if(self) {
         peripherals = [[NSMutableArray alloc] init];
         countTime = 0;
+        state = BleStateNone;
     }
     return self;
 }
@@ -73,6 +75,7 @@
     }
  
     [self.centralManager cancelPeripheralConnection:connectedPeripheral];
+    state = BleStateNone;
 }
 
 - (void)initBleManager
@@ -118,6 +121,7 @@
     }
     [timer invalidate];
     timer = nil;
+    countTime = 0;
     NSLog(@"Scanning stopped");
 }
 
@@ -150,11 +154,6 @@
 }
 
 - (void)sendMeasureCommandToDevice {
-
-    if (connectedPeripheral != nil) {
-        
-        
-    }
 }
 
 - (void)disconnectDevice
@@ -170,19 +169,63 @@
 {
     switch (order) {
         case BleOrderSetup:
-            return @"M6";
+            return @"M6\0\0\r\n";
         case BleOrderMeasureBloodPressure:
-            return  @"MA";
+            return  @"MA\r\n";
         case BleOrderPowerOff:
-            return @"MB";
+            return @"MB\r\n";
     }
 }
 
-- (void)witeData:(BleOrder)order
+- (BleResponse)bleResponseStringToEnum:(NSString *) response
+{
+    if ([response isEqualToString:@"WUP"]) {
+        return BleResponseChangeNormalMode;
+    } else if ([response isEqualToString:@"OFF"]) {
+        return BleResponsePowerOff;
+    } else if ([response isEqualToString:@"WAI"]) {
+        return BleResponseStandBy;
+    } else if ([response isEqualToString:@"COM"]) {
+        return BleResponseConnect;
+    } else if ([response isEqualToString:@"ERR"]) {
+        return BleResponseError;
+    } else if ([response isEqualToString:@"rx"]) {
+        return BleResponseBloodPressureResult1;
+    } else if ([response isEqualToString:@"ra"]) {
+        return BleResponseBloodPressureResult2;
+    }
+    return  BleResponseUnknown;
+}
+
+- (void)writeData:(BleOrder)order
 {
     NSString *orderString = [self bleOrderToString:order];
     NSData *data = [orderString  dataUsingEncoding:NSUTF8StringEncoding];
-    [self.connectedPeripheral writeValue:data forCharacteristic:self.transferCharacteristic type:CBCharacteristicWriteWithResponse];
+    [self.connectedPeripheral writeValue:data forCharacteristic:self.transferCharacteristic type:CBCharacteristicWriteWithoutResponse];
+}
+
+- (void) handleDataResponse:(NSString *) responseString
+{
+    BleResponse response = [self bleResponseStringToEnum: responseString];
+    switch (response) {
+        case BleResponseUnknown:
+            break;
+        case BleResponseChangeNormalMode:
+            break;
+        case BleResponsePowerOff:
+            break;
+        case BleResponseStandBy:
+            break;
+        case BleResponseConnect:
+            [self writeData: BleOrderMeasureBloodPressure];
+            break;
+        case BleResponseError:
+            break;
+        case BleResponseBloodPressureResult1:
+            break;
+        case BleResponseBloodPressureResult2:
+            break;
+    }
 }
 
 #pragma mark - CBCentralManager delegate methods
@@ -307,16 +350,19 @@ didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic
         [self cleanup];
         return;
     }
-    NSString *stringFromData = [[NSString alloc] initWithData:characteristic.value encoding:NSUTF8StringEncoding];
+    NSString *stringFromData = [[[NSString alloc] initWithData:characteristic.value encoding:NSUTF8StringEncoding] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    [self handleDataResponse: stringFromData];
          
     // Have we got everything we need?
-    if ([stringFromData isEqualToString:@"EOM"]) {
-        [self.delegate didReceiveBloodPressureData:stringFromData];
-        [peripheral setNotifyValue:NO forCharacteristic:characteristic];
-        [self.centralManager cancelPeripheralConnection:peripheral];
-        connectedPeripheral = nil;
-        [peripherals removeAllObjects];
-    }
+    
+//    if ([stringFromData isEqualToString:@"EOM"]) {
+//        [self.delegate didReceiveBloodPressureData:stringFromData];
+//        [peripheral setNotifyValue:NO forCharacteristic:characteristic];
+//        [self.centralManager cancelPeripheralConnection:peripheral];
+//        connectedPeripheral = nil;
+//        [peripherals removeAllObjects];
+//    }
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral
@@ -329,7 +375,9 @@ didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
      
     if (characteristic.isNotifying) {
         NSLog(@"Notification began on %@", characteristic);
-        [self witeData:BleOrderSetup];
+        if (state == BleStateNone) {
+            [self writeData:BleOrderSetup];
+        }
     } else {
         // Notification has stopped
         [self cleanup];
