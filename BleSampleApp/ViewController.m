@@ -74,7 +74,11 @@
         case BleManagerStatePoweredOn:
             [deviceList removeAllObjects];
             [deviceList addObjectsFromArray: [bleManager retrieveConnectedDevices]];
-            [self.tableviewDevices reloadData];
+            if ([deviceList count] > 0) {
+                [self.tableviewDevices reloadData];
+            } else {
+                [bleManager startScan];
+            }
             break;
         case BleManagerStatePoweredOff:
             NSLog(@"BleManagerStatePoweredOff");
@@ -95,6 +99,7 @@
 - (void)didDiscoverZealLe0:(nonnull CBPeripheral *)device {
     [deviceList addObject:device];
     [self.tableviewDevices reloadData];
+    [bleManager connectToScanDeviceWith:[device.identifier UUIDString]];
 }
 
 - (void)didReceiveBloodPressureData:(nonnull NSString *)data {

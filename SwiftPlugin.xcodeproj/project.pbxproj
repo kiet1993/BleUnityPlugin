@@ -21,16 +21,11 @@
 		E236142F26C58D9400BE12E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E236142D26C58D9400BE12E9 /* LaunchScreen.storyboard */; };
 		E236143226C58D9400BE12E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E236143126C58D9400BE12E9 /* main.m */; };
 		E236143626C591C300BE12E9 /* SwiftPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = E23613FE26C4FC4700BE12E9 /* SwiftPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E236143C26C6179E00BE12E9 /* VoltData.h in Headers */ = {isa = PBXBuildFile; fileRef = E236143A26C6179E00BE12E9 /* VoltData.h */; };
-		E236143D26C6179E00BE12E9 /* VoltData.m in Sources */ = {isa = PBXBuildFile; fileRef = E236143B26C6179E00BE12E9 /* VoltData.m */; };
-		E236144026C62E1A00BE12E9 /* TimeNowData.h in Headers */ = {isa = PBXBuildFile; fileRef = E236143E26C62E1A00BE12E9 /* TimeNowData.h */; };
-		E236144126C62E1A00BE12E9 /* TimeNowData.m in Sources */ = {isa = PBXBuildFile; fileRef = E236143F26C62E1A00BE12E9 /* TimeNowData.m */; };
-		E278615726C65704000BD84F /* TimeMeasureData.h in Headers */ = {isa = PBXBuildFile; fileRef = E278615526C65704000BD84F /* TimeMeasureData.h */; };
-		E278615826C65704000BD84F /* TimeMeasureData.m in Sources */ = {isa = PBXBuildFile; fileRef = E278615626C65704000BD84F /* TimeMeasureData.m */; };
 		E278615B26C65933000BD84F /* DeviceData.h in Headers */ = {isa = PBXBuildFile; fileRef = E278615926C65933000BD84F /* DeviceData.h */; };
 		E278616326C65CA0000BD84F /* ConnectResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E278616126C65CA0000BD84F /* ConnectResponse.h */; };
 		E278616726C65DB1000BD84F /* BloodPressureData.h in Headers */ = {isa = PBXBuildFile; fileRef = E278616526C65DB1000BD84F /* BloodPressureData.h */; };
 		E278616826C65DB1000BD84F /* BloodPressureData.m in Sources */ = {isa = PBXBuildFile; fileRef = E278616626C65DB1000BD84F /* BloodPressureData.m */; };
+		E2F9D10126D6C0E0002C91FE /* Enum.h in Headers */ = {isa = PBXBuildFile; fileRef = E2F9D10026D6C03E002C91FE /* Enum.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,16 +52,11 @@
 		E236142E26C58D9400BE12E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E236143026C58D9400BE12E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E236143126C58D9400BE12E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E236143A26C6179E00BE12E9 /* VoltData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VoltData.h; sourceTree = "<group>"; };
-		E236143B26C6179E00BE12E9 /* VoltData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VoltData.m; sourceTree = "<group>"; };
-		E236143E26C62E1A00BE12E9 /* TimeNowData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeNowData.h; sourceTree = "<group>"; };
-		E236143F26C62E1A00BE12E9 /* TimeNowData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeNowData.m; sourceTree = "<group>"; };
-		E278615526C65704000BD84F /* TimeMeasureData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeMeasureData.h; sourceTree = "<group>"; };
-		E278615626C65704000BD84F /* TimeMeasureData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeMeasureData.m; sourceTree = "<group>"; };
 		E278615926C65933000BD84F /* DeviceData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceData.h; sourceTree = "<group>"; };
 		E278616126C65CA0000BD84F /* ConnectResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectResponse.h; sourceTree = "<group>"; };
 		E278616526C65DB1000BD84F /* BloodPressureData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BloodPressureData.h; sourceTree = "<group>"; };
 		E278616626C65DB1000BD84F /* BloodPressureData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BloodPressureData.m; sourceTree = "<group>"; };
+		E2F9D10026D6C03E002C91FE /* Enum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Enum.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,16 +159,11 @@
 		E236143726C6176000BE12E9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E236143A26C6179E00BE12E9 /* VoltData.h */,
-				E236143B26C6179E00BE12E9 /* VoltData.m */,
-				E236143E26C62E1A00BE12E9 /* TimeNowData.h */,
-				E236143F26C62E1A00BE12E9 /* TimeNowData.m */,
-				E278615526C65704000BD84F /* TimeMeasureData.h */,
-				E278615626C65704000BD84F /* TimeMeasureData.m */,
 				E278615926C65933000BD84F /* DeviceData.h */,
 				E278616126C65CA0000BD84F /* ConnectResponse.h */,
 				E278616526C65DB1000BD84F /* BloodPressureData.h */,
 				E278616626C65DB1000BD84F /* BloodPressureData.m */,
+				E2F9D10026D6C03E002C91FE /* Enum.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -193,12 +178,10 @@
 				E278616326C65CA0000BD84F /* ConnectResponse.h in Headers */,
 				E236141126C50F0900BE12E9 /* OhqBluetoothManager.h in Headers */,
 				E236141526C5110900BE12E9 /* NetServiceBrowserDelegate.h in Headers */,
-				E278615726C65704000BD84F /* TimeMeasureData.h in Headers */,
 				E278616726C65DB1000BD84F /* BloodPressureData.h in Headers */,
 				E278615B26C65933000BD84F /* DeviceData.h in Headers */,
 				E236143626C591C300BE12E9 /* SwiftPlugin.h in Headers */,
-				E236144026C62E1A00BE12E9 /* TimeNowData.h in Headers */,
-				E236143C26C6179E00BE12E9 /* VoltData.h in Headers */,
+				E2F9D10126D6C0E0002C91FE /* Enum.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,12 +328,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E278616826C65DB1000BD84F /* BloodPressureData.m in Sources */,
-				E236143D26C6179E00BE12E9 /* VoltData.m in Sources */,
 				E236141826C5119C00BE12E9 /* SwiftPluginBridge.mm in Sources */,
 				E236141226C50F0900BE12E9 /* OhqBluetoothManager.m in Sources */,
-				E236144126C62E1A00BE12E9 /* TimeNowData.m in Sources */,
 				E236141626C5110900BE12E9 /* NetServiceBrowserDelegate.m in Sources */,
-				E278615826C65704000BD84F /* TimeMeasureData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

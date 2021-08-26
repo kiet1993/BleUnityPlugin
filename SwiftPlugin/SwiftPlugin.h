@@ -16,4 +16,3 @@ FOUNDATION_EXPORT const unsigned char SwiftPluginVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <SwiftPlugin/PublicHeader.h>
 #import "Source/OhqBluetoothManager.h"
-#import "Source/Model/VoltData.h"

@@ -2,15 +2,15 @@ PODS:
   - SwiftPlugin (0.0.1)
 
 DEPENDENCIES:
-  - SwiftPlugin (from `.`)
+  - SwiftPlugin (from `/Users/macintosh/Desktop/Project/OHQ/Source/BleUnityPlugin`)
 
 EXTERNAL SOURCES:
   SwiftPlugin:
-    :path: "."
+    :path: "/Users/macintosh/Desktop/Project/OHQ/Source/BleUnityPlugin"
 
 SPEC CHECKSUMS:
   SwiftPlugin: 64a5a41a91a6abf0f72d1b514d93b82871431224
 
-PODFILE CHECKSUM: fcc2a4a196c0a64f7e3583453ca9a406d0613308
+PODFILE CHECKSUM: 89fbe36e3b70b4e6519e4805462936517823fbc7
 
 COCOAPODS: 1.10.1
