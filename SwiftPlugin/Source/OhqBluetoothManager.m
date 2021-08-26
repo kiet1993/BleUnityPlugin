@@ -258,6 +258,9 @@ didDiscoverCharacteristicsForService:(CBService *)service
             [peripheral setNotifyValue:YES forCharacteristic:characteristic];
             self.transferCharacteristic = characteristic;
         }
+        if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:CHARACTERISTIC_WRITE_UUID]]) {
+            self.transferCharacteristic = characteristic;
+        }
     }
 }
 
