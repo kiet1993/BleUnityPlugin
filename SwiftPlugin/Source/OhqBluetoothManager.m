@@ -248,9 +248,9 @@
             [self cleanup];
             break;
         case BleResponseBloodPressureResult1:
-            
-            
         case BleResponseBloodPressureResult2:
+            [self parseBloodDataWith:responseString];
+            break;
         case BleResponseUnknown:
             break;
     }
