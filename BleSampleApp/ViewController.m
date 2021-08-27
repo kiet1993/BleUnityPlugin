@@ -89,6 +89,7 @@
     switch (state) {
         case BleConnectDeviceResponseSuccess:
             self.labelResult.text = @"Connect device success";
+            [bleManager startMeasureBloodPressure];
             break;
         case BleConnectDeviceResponseFailed:
             self.labelResult.text = @"Connect device failed";

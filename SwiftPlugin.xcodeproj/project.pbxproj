@@ -25,6 +25,8 @@
 		E278616326C65CA0000BD84F /* ConnectResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E278616126C65CA0000BD84F /* ConnectResponse.h */; };
 		E278616726C65DB1000BD84F /* BloodPressureData.h in Headers */ = {isa = PBXBuildFile; fileRef = E278616526C65DB1000BD84F /* BloodPressureData.h */; };
 		E278616826C65DB1000BD84F /* BloodPressureData.m in Sources */ = {isa = PBXBuildFile; fileRef = E278616626C65DB1000BD84F /* BloodPressureData.m */; };
+		E2C1267526D8C50200179FCB /* NSString+IntFromHexString.h in Headers */ = {isa = PBXBuildFile; fileRef = E2C1267326D8C50200179FCB /* NSString+IntFromHexString.h */; };
+		E2C1267626D8C50200179FCB /* NSString+IntFromHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C1267426D8C50200179FCB /* NSString+IntFromHexString.m */; };
 		E2F9D10126D6C0E0002C91FE /* Enum.h in Headers */ = {isa = PBXBuildFile; fileRef = E2F9D10026D6C03E002C91FE /* Enum.h */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,8 @@
 		E278616126C65CA0000BD84F /* ConnectResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectResponse.h; sourceTree = "<group>"; };
 		E278616526C65DB1000BD84F /* BloodPressureData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BloodPressureData.h; sourceTree = "<group>"; };
 		E278616626C65DB1000BD84F /* BloodPressureData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BloodPressureData.m; sourceTree = "<group>"; };
+		E2C1267326D8C50200179FCB /* NSString+IntFromHexString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+IntFromHexString.h"; sourceTree = "<group>"; };
+		E2C1267426D8C50200179FCB /* NSString+IntFromHexString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+IntFromHexString.m"; sourceTree = "<group>"; };
 		E2F9D10026D6C03E002C91FE /* Enum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Enum.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +138,8 @@
 				E236141326C5110900BE12E9 /* NetServiceBrowserDelegate.h */,
 				E236141426C5110900BE12E9 /* NetServiceBrowserDelegate.m */,
 				E236141726C5119C00BE12E9 /* SwiftPluginBridge.mm */,
+				E2C1267326D8C50200179FCB /* NSString+IntFromHexString.h */,
+				E2C1267426D8C50200179FCB /* NSString+IntFromHexString.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -182,6 +188,7 @@
 				E278615B26C65933000BD84F /* DeviceData.h in Headers */,
 				E236143626C591C300BE12E9 /* SwiftPlugin.h in Headers */,
 				E2F9D10126D6C0E0002C91FE /* Enum.h in Headers */,
+				E2C1267526D8C50200179FCB /* NSString+IntFromHexString.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +336,7 @@
 			files = (
 				E278616826C65DB1000BD84F /* BloodPressureData.m in Sources */,
 				E236141826C5119C00BE12E9 /* SwiftPluginBridge.mm in Sources */,
+				E2C1267626D8C50200179FCB /* NSString+IntFromHexString.m in Sources */,
 				E236141226C50F0900BE12E9 /* OhqBluetoothManager.m in Sources */,
 				E236141626C5110900BE12E9 /* NetServiceBrowserDelegate.m in Sources */,
 			);

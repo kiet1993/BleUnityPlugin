@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSArray<CBPeripheral *> *)retrieveConnectedDevices;
 - (void)selectConnectedDeviceWith:(NSString *)identifier;
 - (void)connectToScanDeviceWith:(NSString *)identifier;
-- (void)sendMeasureCommandToDevice;
+- (void)startMeasureBloodPressure;
 - (void)disconnectDevice;
 @end
 

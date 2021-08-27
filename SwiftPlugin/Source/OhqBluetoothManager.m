@@ -14,6 +14,8 @@
 #import "OhqBluetoothManager.h"
 #import <Foundation/Foundation.h>
 #import "Model/Enum.h"
+#import "Model/BloodPressureData.h"
+#import "NSString+IntFromHexString.h"
 
 @interface OhqBluetoothManager () <CBCentralManagerDelegate, CBPeripheralDelegate> {
     NSMutableArray * peripherals;
@@ -21,6 +23,7 @@
     NSTimer * timer;
     int countTime;
     BleState processingState;
+    BloodPressureData * bloodData;
 }
 
 @property (nonatomic, strong) CBCentralManager *centralManager;
@@ -75,6 +78,8 @@
     }
  
     [self.centralManager cancelPeripheralConnection:connectedPeripheral];
+    connectedPeripheral = nil;
+    [peripherals removeAllObjects];
     processingState = BleStateNone;
 }
 
@@ -153,7 +158,13 @@
     }
 }
 
-- (void)sendMeasureCommandToDevice {
+- (void)startMeasureBloodPressure {
+    bloodData = nil;
+    if (processingState == BleStateNone) {
+        [self writeData:BleOrderSetup];
+    } else if(processingState == BleStateWait) {
+        [self writeData:BleOrderMeasureBloodPressure];
+    }
 }
 
 - (void)disconnectDevice
@@ -237,9 +248,35 @@
             [self cleanup];
             break;
         case BleResponseBloodPressureResult1:
+            
+            
         case BleResponseBloodPressureResult2:
         case BleResponseUnknown:
             break;
+    }
+}
+
+- (void) parseBloodDataWith:(NSString *) result
+{
+    if (bloodData == nil) {
+        bloodData = [[BloodPressureData alloc] init];
+    }
+    if ([result containsString:@"rx"]) {
+        NSString * stringResult = [[result componentsSeparatedByString:@"rx"] lastObject];
+        bloodData.errorCode = [stringResult hexStringToIntWith:NSMakeRange(0, 2)];
+        bloodData.systolic = [result hexStringToIntWith:NSMakeRange(2, 6)] / 128;
+        bloodData.diastolic = [result hexStringToIntWith:NSMakeRange(6, 10)] / 128;
+        bloodData.pulseRate = [result hexStringToIntWith:NSMakeRange(10, 12)];
+    } else if ([result containsString:@"ra"]) {
+        NSString * stringResult = [[result componentsSeparatedByString:@"ra"] lastObject];
+        bloodData.bodyMovementDetected = [stringResult stringToIntWith:NSMakeRange(4, 6)] == 1;
+        bloodData.bodyMovementCount = [stringResult stringToIntWith:NSMakeRange(0, 2)];
+        bloodData.irregularPulseDetected = [stringResult stringToIntWith:NSMakeRange(6, 8)] == 1;
+        bloodData.irregularPulseRate = [stringResult stringToIntWith:NSMakeRange(2, 4)];
+        bloodData.isCuffFitting = [stringResult stringToIntWith:NSMakeRange(8, 10)] == 1;
+        [self.delegate didReceiveBloodPressureData:[NSString stringWithFormat:@"%@", [bloodData toNSDictionary]]];
+    } else {
+        NSLog(@"Unsupport blood result format");
     }
 }
 
@@ -270,7 +307,6 @@
 {
     NSLog(@"--- didConnectPeripheral");
     [self stopScan];
-    [self.delegate didConnectPeripheralWith:BleConnectDeviceResponseSuccess];
 
     NSLog(@"peripheral in didConnect function: %@", peripheral);
     NSLog(@"any services??: %@", peripheral.services);
@@ -351,13 +387,6 @@ didDiscoverCharacteristicsForService:(CBService *)service
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral
-didDiscoverDescriptorsForCharacteristic:(CBCharacteristic *)characteristic
-             error:(NSError *)error
-{
-    
-}
-
-- (void)peripheral:(CBPeripheral *)peripheral
 didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic
              error:(NSError *)error
 {
@@ -370,16 +399,6 @@ didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic
     NSString *trimmedString = [stringFromData stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
     [self handleDataResponse: trimmedString];
-         
-    // Have we got everything we need?
-    
-//    if ([stringFromData isEqualToString:@"EOM"]) {
-//        [self.delegate didReceiveBloodPressureData:stringFromData];
-//        [peripheral setNotifyValue:NO forCharacteristic:characteristic];
-//        [self.centralManager cancelPeripheralConnection:peripheral];
-//        connectedPeripheral = nil;
-//        [peripherals removeAllObjects];
-//    }
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral
@@ -392,9 +411,7 @@ didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
      
     if (characteristic.isNotifying) {
         NSLog(@"Notification began on %@", characteristic);
-        if (processingState == BleStateNone) {
-            [self writeData:BleOrderSetup];
-        }
+        [self.delegate didConnectPeripheralWith:BleConnectDeviceResponseSuccess];
     } else {
         // Notification has stopped
         [self cleanup];
