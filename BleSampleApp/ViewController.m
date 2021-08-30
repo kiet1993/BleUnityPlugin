@@ -120,4 +120,9 @@
     self.labelSteps.text = stepsString;
 }
 
+- (void)deviceDidChangeStatePowerOff
+{
+    NSLog(@"deviceDidChangeStatePowerOff");
+}
+
 @end

@@ -143,6 +143,7 @@
         NSUUID * uuid = [[NSUUID alloc] initWithUUIDString:identifier];
         if (item.identifier == uuid) {
             connectedPeripheral = item;
+            connectedDevices = nil;
             break;
         }
     }
@@ -161,7 +162,7 @@
 
 - (void)startMeasureBloodPressure {
     bloodData = nil;
-    if (processingState == BleStateNone) {
+    if (processingState == BleStateNone || processingState == BleStateOff) {
         [self writeData:BleOrderSetup];
     } else if(processingState == BleStateWait) {
         [self writeData:BleOrderMeasureBloodPressure];
@@ -171,9 +172,7 @@
 - (void)disconnectDevice
 {
     if (!(self.centralManager == nil || connectedPeripheral == nil)) {
-        [self.centralManager cancelPeripheralConnection: connectedPeripheral];
-        connectedPeripheral = nil;
-        [peripherals removeAllObjects];
+        [self cleanup];
     }
 }
 
