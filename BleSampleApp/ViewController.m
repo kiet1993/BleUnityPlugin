@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelResult;
 @property (weak, nonatomic) IBOutlet UILabel *labelDiscoverDevice;
 @property (weak, nonatomic) IBOutlet UITableView *tableviewDevices;
+@property (weak, nonatomic) IBOutlet UILabel *labelSteps;
 
 @end
 
@@ -113,6 +114,10 @@
     if (device.name != nil) {
         self.labelDiscoverDevice.text = [NSString stringWithFormat:@"Device: %@", device.name];
     }
+}
+
+- (void)didUpdateMeasureStep:(NSString *)stepsString {
+    self.labelSteps.text = stepsString;
 }
 
 @end

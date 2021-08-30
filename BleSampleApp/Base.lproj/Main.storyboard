@@ -56,6 +56,12 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rGT-sp-Kfn">
+                                <rect key="frame" x="207" y="79" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blood Pressure data:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dJQ-FT-qXW">
                                 <rect key="frame" x="20" y="284.5" width="158" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -70,11 +76,13 @@
                             <constraint firstItem="6g5-vw-2rT" firstAttribute="top" secondItem="ePC-i2-XJk" secondAttribute="bottom" constant="10" id="A4P-jM-sHd"/>
                             <constraint firstItem="0vV-IS-GTC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Cqm-oh-sNo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mMx-vr-DFG" secondAttribute="trailing" constant="20" id="FXT-N0-oZL"/>
+                            <constraint firstItem="rGT-sp-Kfn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="J2U-CP-q1l"/>
                             <constraint firstItem="6g5-vw-2rT" firstAttribute="trailing" secondItem="ePC-i2-XJk" secondAttribute="trailing" id="KQ7-RA-ruT"/>
                             <constraint firstItem="ePC-i2-XJk" firstAttribute="top" secondItem="6id-Tf-VHX" secondAttribute="bottom" constant="10" id="PxC-Tm-5OV"/>
                             <constraint firstItem="ePC-i2-XJk" firstAttribute="trailing" secondItem="mMx-vr-DFG" secondAttribute="trailing" id="SU4-SS-hdV"/>
                             <constraint firstItem="6id-Tf-VHX" firstAttribute="top" secondItem="0vV-IS-GTC" secondAttribute="bottom" constant="10" id="SzA-Zl-QXZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dJQ-FT-qXW" secondAttribute="trailing" constant="20" id="Usc-So-332"/>
+                            <constraint firstItem="rGT-sp-Kfn" firstAttribute="centerY" secondItem="0vV-IS-GTC" secondAttribute="centerY" id="W1v-WT-QiC"/>
                             <constraint firstItem="6id-Tf-VHX" firstAttribute="trailing" secondItem="mMx-vr-DFG" secondAttribute="trailing" id="Yrd-Y4-1bg"/>
                             <constraint firstItem="dJQ-FT-qXW" firstAttribute="leading" secondItem="ePC-i2-XJk" secondAttribute="leading" id="ZKT-yS-Q9I"/>
                             <constraint firstItem="0vV-IS-GTC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Zo9-8S-r2O"/>
@@ -89,6 +97,7 @@
                     <connections>
                         <outlet property="labelDiscoverDevice" destination="6g5-vw-2rT" id="KmE-MP-IRC"/>
                         <outlet property="labelResult" destination="dJQ-FT-qXW" id="9tX-PP-MfG"/>
+                        <outlet property="labelSteps" destination="rGT-sp-Kfn" id="33o-lk-GLi"/>
                         <outlet property="tableviewDevices" destination="ePC-i2-XJk" id="JT2-To-OXA"/>
                     </connections>
                 </viewController>

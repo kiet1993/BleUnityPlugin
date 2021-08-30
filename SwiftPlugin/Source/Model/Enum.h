@@ -21,6 +21,7 @@ typedef enum BleResponse {
     BleResponseStandBy, //@"WAI"
     BleResponseReadyForMeasure, //@"COM"
     BleResponseError,//@"ERR"
+    BleResponseMeasureEnd, //@"EXH"
     BleResponseBloodPressureResult1,//@"rx"
     BleResponseBloodPressureResult2 //@"ra"
 } BleResponse;

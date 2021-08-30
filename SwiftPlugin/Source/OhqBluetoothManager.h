@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)didConnectPeripheralWith:(BleConnectDeviceResponse)state;
 - (void)didDiscoverZealLe0:(CBPeripheral *)device;
 - (void)didReceiveBloodPressureData:(NSString *)data;
+- (void)deviceDidChangeStatePowerOff;
+- (void)didUpdateMeasureStep:(NSString *)stepsString;
 
 @end
 

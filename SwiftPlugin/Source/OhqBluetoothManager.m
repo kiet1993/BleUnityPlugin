@@ -10,6 +10,7 @@
 #define CHARACTERISTIC_WRITE_UUID @"27ADC9CC-35EB-465A-9154-B8FF9076F3E8"
 
 #define SCAN_TIMEOUT 60
+#define TOTAL_STEP 5
 
 #import "OhqBluetoothManager.h"
 #import <Foundation/Foundation.h>
@@ -200,7 +201,9 @@
         return BleResponseReadyForMeasure;
     } else if ([response containsString:@"ERR"]) {
         return BleResponseError;
-    } else if ([response containsString:@"rx"]) {
+    } else if ([response containsString:@"EXH"]) {
+        return BleResponseMeasureEnd;
+    } else if ([response hasPrefix:@"rx"] || [response hasPrefix:@"x"]) {
         return BleResponseBloodPressureResult1;
     } else if ([response containsString:@"ra"]) {
         return BleResponseBloodPressureResult2;
@@ -224,10 +227,11 @@
         case BleResponseChangeNormalMode:
             processingState = BleStateNormal;
             [self writeData:BleOrderSetup];
+            [self.delegate didUpdateMeasureStep:[NSString stringWithFormat:@"%d/%d",1,TOTAL_STEP]];
             break;
         case BleResponsePowerOff:
             processingState = BleStateOff;
-            [self cleanup];
+            [self.delegate deviceDidChangeStatePowerOff];
             break;
         case BleResponseStandBy:
             processingState = BleStateWait;
@@ -238,6 +242,7 @@
             {
                 [self writeData:BleOrderPowerOff];
             } else {
+                [self.delegate didUpdateMeasureStep:[NSString stringWithFormat:@"%d/%d",2,TOTAL_STEP]];
                 [self writeData:BleOrderMeasureBloodPressure];
             }
             processingState = BleStateReady;
@@ -248,8 +253,15 @@
             [self cleanup];
             break;
         case BleResponseBloodPressureResult1:
-        case BleResponseBloodPressureResult2:
+            [self.delegate didUpdateMeasureStep:[NSString stringWithFormat:@"%d/%d",4,TOTAL_STEP]];
             [self parseBloodDataWith:responseString];
+            break;
+        case BleResponseBloodPressureResult2:
+            [self.delegate didUpdateMeasureStep:[NSString stringWithFormat:@"%d/%d",5,TOTAL_STEP]];
+            [self parseBloodDataWith:responseString];
+            break;
+        case BleResponseMeasureEnd:
+            [self.delegate didUpdateMeasureStep:[NSString stringWithFormat:@"%d/%d",3,TOTAL_STEP]];
             break;
         case BleResponseUnknown:
             break;
@@ -261,19 +273,20 @@
     if (bloodData == nil) {
         bloodData = [[BloodPressureData alloc] init];
     }
-    if ([result containsString:@"rx"]) {
-        NSString * stringResult = [[result componentsSeparatedByString:@"rx"] lastObject];
+    bool isFirstResult = [result hasPrefix:@"rx"] || [result hasPrefix:@"x"];
+    if (isFirstResult) {
+        NSString * stringResult = [[result componentsSeparatedByString:@"x"] lastObject];
         bloodData.errorCode = [stringResult hexStringToIntWith:NSMakeRange(0, 2)];
-        bloodData.systolic = [result hexStringToIntWith:NSMakeRange(2, 6)] / 128;
-        bloodData.diastolic = [result hexStringToIntWith:NSMakeRange(6, 10)] / 128;
-        bloodData.pulseRate = [result hexStringToIntWith:NSMakeRange(10, 12)];
+        bloodData.systolic = [stringResult hexStringToIntWith:NSMakeRange(2, 4)] / 128;
+        bloodData.diastolic = [stringResult hexStringToIntWith:NSMakeRange(6, 4)] / 128;
+        bloodData.pulseRate = [stringResult hexStringToIntWith:NSMakeRange(10, 2)];
     } else if ([result containsString:@"ra"]) {
         NSString * stringResult = [[result componentsSeparatedByString:@"ra"] lastObject];
-        bloodData.bodyMovementDetected = [stringResult stringToIntWith:NSMakeRange(4, 6)] == 1;
+        bloodData.bodyMovementDetected = [stringResult stringToIntWith:NSMakeRange(4, 2)] == 1;
         bloodData.bodyMovementCount = [stringResult stringToIntWith:NSMakeRange(0, 2)];
-        bloodData.irregularPulseDetected = [stringResult stringToIntWith:NSMakeRange(6, 8)] == 1;
-        bloodData.irregularPulseRate = [stringResult stringToIntWith:NSMakeRange(2, 4)];
-        bloodData.isCuffFitting = [stringResult stringToIntWith:NSMakeRange(8, 10)] == 1;
+        bloodData.irregularPulseDetected = [stringResult stringToIntWith:NSMakeRange(6, 2)] == 1;
+        bloodData.irregularPulseRate = [stringResult stringToIntWith:NSMakeRange(2, 2)];
+        bloodData.isCuffFitting = [stringResult stringToIntWith:NSMakeRange(8, 2)] == 1;
         [self.delegate didReceiveBloodPressureData:[NSString stringWithFormat:@"%@", [bloodData toNSDictionary]]];
     } else {
         NSLog(@"Unsupport blood result format");
