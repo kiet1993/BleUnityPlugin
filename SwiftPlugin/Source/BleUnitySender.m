@@ -17,7 +17,7 @@ static NSString* recieverObjectName = @"BleReceiver";
 
 + (void)didScanTimeOut
 {
-//    UnitySendMessage([recieverObjectName UTF8String], [@"DidScanTimeOut" UTF8String], nil);
+//    UnitySendMessage([recieverObjectName UTF8String], [@"DidScanTimeOut" UTF8String], [@"" UTF8String]);
 }
 
 + (void)didConnectPeripheralWith:(NSString *)state
@@ -37,7 +37,7 @@ static NSString* recieverObjectName = @"BleReceiver";
 
 + (void)deviceDidChangeStatePowerOff
 {
-//    UnitySendMessage([recieverObjectName UTF8String], [@"DeviceDidChangeStatePowerOff" UTF8String], nil);
+//    UnitySendMessage([recieverObjectName UTF8String], [@"DeviceDidChangeStatePowerOff" UTF8String], [@"" UTF8String]);
 }
 
 + (void)didUpdateMeasureStep:(NSString *)stepsString
