@@ -45,7 +45,7 @@ extern "C" {
         [[OhqBluetoothManager sharedInstance] stopScan];
     }
 
-    const char* retrieveConnectedDevices()
+    const char* _RetrieveConnectedDevices()
     {
         return MakeStringCopy([[[OhqBluetoothManager sharedInstance] retrieveConnectedPeripherals] UTF8String]);
     }
