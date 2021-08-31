@@ -7,9 +7,11 @@
 
 #import <Foundation/Foundation.h>
 #import "NetServiceBrowserDelegate.h"
+#import "OhqBluetoothManager.h"
 
 static NetServiceBrowserDelegate* delegateObject = nil;
 static NSNetServiceBrowser *serviceBrowser = nil;
+static OhqBluetoothManager *bleManager = nil;
 
 // Converts C style string to NSString
 NSString* CreateNSString (const char* string)
@@ -33,44 +35,38 @@ char* MakeStringCopy (const char* string)
 
 extern "C" {
 
-    void _StartLookup (const char* service, const char* domain)
+    void _InitBleManager()
     {
-        if (delegateObject == nil)
-            delegateObject = [[NetServiceBrowserDelegate alloc] init];
-        
-        
-        if (serviceBrowser == nil)
-            serviceBrowser = [[NSNetServiceBrowser alloc] init];
-        
-        [serviceBrowser setDelegate:delegateObject];
-        
-        // Call "searchForServicesOfType" and pass NSStrings as parameters. By default mono
-        // marshals all .Net strings as UTF-8 C style strings.
-        [serviceBrowser searchForServicesOfType: CreateNSString(service) inDomain: CreateNSString(domain)];
+        bleManager = [OhqBluetoothManager sharedInstance];
     }
-    
-    const char* _GetLookupStatus ()
+
+    void _StartScan()
     {
-        // By default mono string marshaler creates .Net string for returned UTF-8 C string
-        // and calls free for returned value, thus returned strings should be allocated on heap
-        return MakeStringCopy([[delegateObject getStatus] UTF8String]);
+        [bleManager startScan];
     }
-    
-    int _GetServiceCount ()
+
+    void _StopScan()
     {
-        return [delegateObject getCount];
+        [bleManager stopScan];
     }
-    
-    const char* _GetServiceName (int serviceNumber)
+
+    const char* retrieveConnectedDevices()
     {
-        // By default mono string marshaler creates .Net string for returned UTF-8 C string
-        // and calls free for returned value, thus returned strings should be allocated on heap
-        return MakeStringCopy([[[delegateObject getService:serviceNumber] name] UTF8String]);
+        return MakeStringCopy([[bleManager retrieveConnectedPeripherals] UTF8String]);
     }
-    
-    void _Stop()
+
+    void _ConnectToScanDeviceWith(const char* identifier)
     {
-        [serviceBrowser stop];
+        [bleManager connectToScanDeviceWith:CreateNSString(identifier)];
     }
-    
+
+    void _StartMeasureBloodPressure()
+    {
+        [bleManager startMeasureBloodPressure];
+    }
+
+    void _DisconnectDevice()
+    {
+        [bleManager disconnectDevice];
+    }
 }

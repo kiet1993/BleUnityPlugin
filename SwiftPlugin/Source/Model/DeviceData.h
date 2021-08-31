@@ -12,9 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DeviceData : NSObject
 
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *address;
 @property (nonatomic, copy) NSString *uuid;
 
+- (id)initWith:(NSString *)name uuid:(NSString *)uuid;
+- (NSDictionary*)toNSDictionary;
 @end
 
 NS_ASSUME_NONNULL_END

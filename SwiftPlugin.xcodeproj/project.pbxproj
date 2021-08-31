@@ -21,6 +21,9 @@
 		E236142F26C58D9400BE12E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E236142D26C58D9400BE12E9 /* LaunchScreen.storyboard */; };
 		E236143226C58D9400BE12E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E236143126C58D9400BE12E9 /* main.m */; };
 		E236143626C591C300BE12E9 /* SwiftPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = E23613FE26C4FC4700BE12E9 /* SwiftPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2615AB926DCC24300E3A4BA /* BleUnitySender.h in Headers */ = {isa = PBXBuildFile; fileRef = E2615AB726DCC24300E3A4BA /* BleUnitySender.h */; };
+		E2615ABA26DCC24300E3A4BA /* BleUnitySender.m in Sources */ = {isa = PBXBuildFile; fileRef = E2615AB826DCC24300E3A4BA /* BleUnitySender.m */; };
+		E2615ABC26DCE8A800E3A4BA /* DeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = E2615ABB26DCE8A800E3A4BA /* DeviceData.m */; };
 		E278615B26C65933000BD84F /* DeviceData.h in Headers */ = {isa = PBXBuildFile; fileRef = E278615926C65933000BD84F /* DeviceData.h */; };
 		E278616326C65CA0000BD84F /* ConnectResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E278616126C65CA0000BD84F /* ConnectResponse.h */; };
 		E278616726C65DB1000BD84F /* BloodPressureData.h in Headers */ = {isa = PBXBuildFile; fileRef = E278616526C65DB1000BD84F /* BloodPressureData.h */; };
@@ -54,6 +57,9 @@
 		E236142E26C58D9400BE12E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E236143026C58D9400BE12E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E236143126C58D9400BE12E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E2615AB726DCC24300E3A4BA /* BleUnitySender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BleUnitySender.h; sourceTree = "<group>"; };
+		E2615AB826DCC24300E3A4BA /* BleUnitySender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BleUnitySender.m; sourceTree = "<group>"; };
+		E2615ABB26DCE8A800E3A4BA /* DeviceData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceData.m; sourceTree = "<group>"; };
 		E278615926C65933000BD84F /* DeviceData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceData.h; sourceTree = "<group>"; };
 		E278616126C65CA0000BD84F /* ConnectResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectResponse.h; sourceTree = "<group>"; };
 		E278616526C65DB1000BD84F /* BloodPressureData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BloodPressureData.h; sourceTree = "<group>"; };
@@ -140,6 +146,8 @@
 				E236141726C5119C00BE12E9 /* SwiftPluginBridge.mm */,
 				E2C1267326D8C50200179FCB /* NSString+IntFromHexString.h */,
 				E2C1267426D8C50200179FCB /* NSString+IntFromHexString.m */,
+				E2615AB726DCC24300E3A4BA /* BleUnitySender.h */,
+				E2615AB826DCC24300E3A4BA /* BleUnitySender.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -166,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				E278615926C65933000BD84F /* DeviceData.h */,
+				E2615ABB26DCE8A800E3A4BA /* DeviceData.m */,
 				E278616126C65CA0000BD84F /* ConnectResponse.h */,
 				E278616526C65DB1000BD84F /* BloodPressureData.h */,
 				E278616626C65DB1000BD84F /* BloodPressureData.m */,
@@ -189,6 +198,7 @@
 				E236143626C591C300BE12E9 /* SwiftPlugin.h in Headers */,
 				E2F9D10126D6C0E0002C91FE /* Enum.h in Headers */,
 				E2C1267526D8C50200179FCB /* NSString+IntFromHexString.h in Headers */,
+				E2615AB926DCC24300E3A4BA /* BleUnitySender.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,11 +344,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2615ABA26DCC24300E3A4BA /* BleUnitySender.m in Sources */,
 				E278616826C65DB1000BD84F /* BloodPressureData.m in Sources */,
 				E236141826C5119C00BE12E9 /* SwiftPluginBridge.mm in Sources */,
 				E2C1267626D8C50200179FCB /* NSString+IntFromHexString.m in Sources */,
 				E236141226C50F0900BE12E9 /* OhqBluetoothManager.m in Sources */,
 				E236141626C5110900BE12E9 /* NetServiceBrowserDelegate.m in Sources */,
+				E2615ABC26DCE8A800E3A4BA /* DeviceData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,7 +568,7 @@
 				DEVELOPMENT_TEAM = 88KGU2B2H3;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = BleSampleApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -579,7 +591,7 @@
 				DEVELOPMENT_TEAM = 88KGU2B2H3;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = BleSampleApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

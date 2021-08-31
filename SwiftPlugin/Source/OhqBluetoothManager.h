@@ -6,8 +6,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Model/DeviceData.h"
 #import "Model/BloodPressureData.h"
+#import "Model/DeviceData.h"
 #import "Model/ConnectResponse.h"
 #import <CoreBluetooth/CoreBluetooth.h>
 
@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)startScan;
 - (void)stopScan;
 - (NSArray<CBPeripheral *> *)retrieveConnectedDevices;
-- (void)selectConnectedDeviceWith:(NSString *)identifier;
+- (NSString *) retrieveConnectedPeripherals;
 - (void)connectToScanDeviceWith:(NSString *)identifier;
 - (void)startMeasureBloodPressure;
 - (void)disconnectDevice;

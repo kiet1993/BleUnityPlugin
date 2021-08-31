@@ -138,15 +138,18 @@
     return connectedDevices;
 }
 
-- (void)selectConnectedDeviceWith:(NSString *)identifier {
-    for (CBPeripheral* item in connectedDevices) {
-        NSUUID * uuid = [[NSUUID alloc] initWithUUIDString:identifier];
-        if (item.identifier == uuid) {
-            connectedPeripheral = item;
-            connectedDevices = nil;
-            break;
-        }
-    }
+- (NSString *) retrieveConnectedPeripherals {
+    CBUUID *uuid = [CBUUID UUIDWithString:SERVICE_UUID];
+    connectedDevices = [self.centralManager retrieveConnectedPeripheralsWithServices:@[uuid]];
+    NSMutableArray *arrayObject = [[NSMutableArray alloc] init];
+    [connectedDevices enumerateObjectsUsingBlock:^(CBPeripheral * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            DeviceData * device = [[DeviceData alloc] initWith:obj.name uuid:obj.identifier.UUIDString];
+        [arrayObject addObject:device];
+        }];
+    NSError* error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:arrayObject options:NSJSONWritingPrettyPrinted error:&error];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    return error ? nil : jsonString;
 }
 
 - (void)connectToScanDeviceWith:(NSString *)identifier
