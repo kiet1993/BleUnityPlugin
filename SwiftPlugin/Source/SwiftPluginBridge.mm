@@ -6,12 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NetServiceBrowserDelegate.h"
 #import "OhqBluetoothManager.h"
-
-static NetServiceBrowserDelegate* delegateObject = nil;
-static NSNetServiceBrowser *serviceBrowser = nil;
-static OhqBluetoothManager *bleManager = nil;
 
 // Converts C style string to NSString
 NSString* CreateNSString (const char* string)
@@ -37,36 +32,36 @@ extern "C" {
 
     void _InitBleManager()
     {
-        bleManager = [OhqBluetoothManager sharedInstance];
+        [[OhqBluetoothManager sharedInstance] initBleManager];
     }
 
     void _StartScan()
     {
-        [bleManager startScan];
+        [[OhqBluetoothManager sharedInstance] startScan];
     }
 
     void _StopScan()
     {
-        [bleManager stopScan];
+        [[OhqBluetoothManager sharedInstance] stopScan];
     }
 
     const char* retrieveConnectedDevices()
     {
-        return MakeStringCopy([[bleManager retrieveConnectedPeripherals] UTF8String]);
+        return MakeStringCopy([[[OhqBluetoothManager sharedInstance] retrieveConnectedPeripherals] UTF8String]);
     }
 
     void _ConnectToScanDeviceWith(const char* identifier)
     {
-        [bleManager connectToScanDeviceWith:CreateNSString(identifier)];
+        [[OhqBluetoothManager sharedInstance] connectToScanDeviceWith:CreateNSString(identifier)];
     }
 
     void _StartMeasureBloodPressure()
     {
-        [bleManager startMeasureBloodPressure];
+        [[OhqBluetoothManager sharedInstance] startMeasureBloodPressure];
     }
 
     void _DisconnectDevice()
     {
-        [bleManager disconnectDevice];
+        [[OhqBluetoothManager sharedInstance] disconnectDevice];
     }
 }

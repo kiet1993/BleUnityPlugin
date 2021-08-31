@@ -10,13 +10,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef enum BleManagerState : NSUInteger {
-    BleManagerStatePoweredOn,
-    BleManagerStatePoweredOff
+    BleManagerStatePoweredOn = 0,
+    BleManagerStatePoweredOff = 1
 } BleManagerState;
 
 typedef enum BleConnectDeviceResponse : NSUInteger {
-    BleConnectDeviceResponseSuccess,
-    BleConnectDeviceResponseFailed
+    BleConnectDeviceResponseSuccess = 0,
+    BleConnectDeviceResponseFailed = 1
 } BleConnectDeviceResponse;
 
 NS_ASSUME_NONNULL_END

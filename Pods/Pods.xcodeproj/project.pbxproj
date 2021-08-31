@@ -7,31 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07D2467861FD53CF34922EB0FC8C68F9 /* DeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8710AF281D9AA1D1B70C73599680A249 /* DeviceData.m */; };
-		166EF9BE17E59E1C2F1E9B4CD292044A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		19DDC6DE4F7F33FCFAA17E5644D8AC33 /* DeviceData.h in Headers */ = {isa = PBXBuildFile; fileRef = E920CDE2FBDB833BDB8EAC1166E75EF7 /* DeviceData.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1F5192156A0A4FCA45300A53C6CD2581 /* OhqBluetoothManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0821997451437AF61E3CA3A323776774 /* OhqBluetoothManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		274F8FC3C06FDBCAD2A569CDC86EDE8B /* OhqBluetoothManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C7D957DFD1DB892F4E61D9A1EB4C72 /* OhqBluetoothManager.m */; };
+		0282F815FE48CC0968DB61C452758771 /* BloodPressureData.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D13869369FD0C50595C870381CBFD6 /* BloodPressureData.m */; };
+		0755A06AF90C2578E5F8A60FCC3371D2 /* NSString+IntFromHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A4978CD10CA45F04E1E6AC6E3A52AA /* NSString+IntFromHexString.m */; };
 		2C3743162969DB7DBBF74AA5266AEA36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		3A27B217470647FB6511FEBF4B18F334 /* NetServiceBrowserDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = B993744989342A777D4144F48CE29F2A /* NetServiceBrowserDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A0EC66CA20994DD957211F1E361304B /* BleUnitySender.h in Headers */ = {isa = PBXBuildFile; fileRef = 4955BC25632EEBC4D0B9E3B68D500059 /* BleUnitySender.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3C5B308360D59AD7585DB6C8B6BF994C /* Enum.h in Headers */ = {isa = PBXBuildFile; fileRef = AAF80CFF908F3CC31475E6B0724108E4 /* Enum.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3D6540AD725AE51F6F9845F58910F270 /* ConnectResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 250DA4206916EBFD74AB1E6E0BE3553D /* ConnectResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3DEC5C242E8153C3CCCF16C22506F44C /* Pods-BleSampleApp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 36A82BD4B1EC2337DEDA523E2449A5A0 /* Pods-BleSampleApp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		43DAD1CA09127C61F62434A184E8F78A /* BloodPressureData.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A224E0E683CC441EA9C4FE37C3B019 /* BloodPressureData.m */; };
-		4D1061701474F627B7AAD6D306243E07 /* BleUnitySender.m in Sources */ = {isa = PBXBuildFile; fileRef = 566ACB99DCD4EB6C07502A6AECA5A8D4 /* BleUnitySender.m */; };
-		56186537CFC86DE9005F22B21020D69B /* SwiftPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 032D7A153897774EE7E26E58E349D45C /* SwiftPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5CCD84A029B67D8C92F5DF2FDDD93428 /* NetServiceBrowserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2D91CA2C0556BA4407932BCFFD814E /* NetServiceBrowserDelegate.m */; };
-		6A35AEA65BDE2E1CA7482CE961B1282B /* SwiftPlugin-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2150D4F570FD0D83F8F96CF3C17F087F /* SwiftPlugin-dummy.m */; };
-		7BE7DC0BA52A32B8EDDF6535A9C10B12 /* SwiftPlugin-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B5C6EDE7D9ECD8FFFB621F4BD9A58E0 /* SwiftPlugin-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		868AC043C1EA99D2262A3C2A3F229997 /* NSString+IntFromHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2213BCEC07D3511861C963D0836DA3 /* NSString+IntFromHexString.m */; };
+		6422D9BC1B5F27F393A2B8A60A507464 /* BleUnitySender.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EE399FF01432B68A7D42D0CB60C6437 /* BleUnitySender.m */; };
+		64A17C2895855E8CE8C135ACC5C14B24 /* NSString+IntFromHexString.h in Headers */ = {isa = PBXBuildFile; fileRef = 97DC638451344676E19A4DD2C3104AA6 /* NSString+IntFromHexString.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67E27F5B12EDEC248208BD796A3EE23C /* SwiftPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = A3D6AA6D9D77E97E812D94EAAE36B19B /* SwiftPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1F71097DCCC42B3F187D3C080481B8E /* Pods-BleSampleApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFDD09FEA79AA1872B327043D3305FD /* Pods-BleSampleApp-dummy.m */; };
-		A2913715ED79043909847F61C18537E5 /* NSString+IntFromHexString.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D656D26287D6CC5002CEEBFD1F43DD4 /* NSString+IntFromHexString.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A3F9618446259A2DB74F3E746572CFAC /* BloodPressureData.h in Headers */ = {isa = PBXBuildFile; fileRef = 94AC83E5F77749F68646B8F2B1EF29B3 /* BloodPressureData.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ACDFBF7C053630AE18616EFAB421BDC9 /* ConnectResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A9F4D3353CEB97947061C2A83C22AB3 /* ConnectResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F159E2F162A055A0CBFEAEFCE5F907EB /* BleUnitySender.h in Headers */ = {isa = PBXBuildFile; fileRef = 4160D2F93D47ED97606F77200B34D656 /* BleUnitySender.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F8968B1F9CD393FFC2FEDD7AC5DA268C /* Enum.h in Headers */ = {isa = PBXBuildFile; fileRef = 336CA12ECB82D1B6B7682E78F457C2FF /* Enum.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6879E9197139E57EAE7574E56E10CB2 /* OhqBluetoothManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AA27FE31E0C0CCC3057465CA1248B3DF /* OhqBluetoothManager.m */; };
+		ADB36DF6BD74F512E300A705AD8E1019 /* OhqBluetoothManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 8631BC135A3CB36086EE914DE1539724 /* OhqBluetoothManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C1AFA60247E383D2427A2730B90DEB44 /* SwiftPlugin-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7221032D0065E54092B20FC76590AAB8 /* SwiftPlugin-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CAB18DEC7F88D216E97C24D9F7153027 /* DeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC7AB903B65CCEA6045D567243FC0D8 /* DeviceData.m */; };
+		D96A6D193FF35C8B872EE1408E0EEE13 /* BloodPressureData.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C802B3CBD5AE1A067292E2F134D8650 /* BloodPressureData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E12EC64EA3290701AE5E44AA0330D536 /* SwiftPlugin-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1253FF8102FEF94ACC1F3B49F4C58DF7 /* SwiftPlugin-dummy.m */; };
+		E54D4F8377EEE56050DCC86B7FE85AD4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		F4E3504DF84F8FCA165395EB3996CCD8 /* DeviceData.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FD3DA9AFFDDC84188ECE4141A5E527E /* DeviceData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		40ADF728891916205CC6CB14978E64B7 /* PBXContainerItemProxy */ = {
+		7D4652BE1D5CA1952F11252A89E43A17 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -41,43 +39,41 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		032D7A153897774EE7E26E58E349D45C /* SwiftPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SwiftPlugin.h; path = SwiftPlugin/SwiftPlugin.h; sourceTree = "<group>"; };
-		06C7D957DFD1DB892F4E61D9A1EB4C72 /* OhqBluetoothManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = OhqBluetoothManager.m; sourceTree = "<group>"; };
-		0821997451437AF61E3CA3A323776774 /* OhqBluetoothManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = OhqBluetoothManager.h; sourceTree = "<group>"; };
+		00413AF70B5C93BFA910447714E5FB8F /* SwiftPlugin-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftPlugin-prefix.pch"; sourceTree = "<group>"; };
+		0FD3DA9AFFDDC84188ECE4141A5E527E /* DeviceData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DeviceData.h; sourceTree = "<group>"; };
 		118E96EEBC1CEAFAB07C2185668B85BF /* SwiftPlugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftPlugin.framework; path = SwiftPlugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1775D384150E3B232240E81609A6CA0A /* SwiftPlugin.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftPlugin.modulemap; sourceTree = "<group>"; };
-		2150D4F570FD0D83F8F96CF3C17F087F /* SwiftPlugin-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftPlugin-dummy.m"; sourceTree = "<group>"; };
-		28A224E0E683CC441EA9C4FE37C3B019 /* BloodPressureData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BloodPressureData.m; sourceTree = "<group>"; };
+		1253FF8102FEF94ACC1F3B49F4C58DF7 /* SwiftPlugin-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftPlugin-dummy.m"; sourceTree = "<group>"; };
+		128E3F19C98353EC99AE13D14F56568E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		1EE399FF01432B68A7D42D0CB60C6437 /* BleUnitySender.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BleUnitySender.m; sourceTree = "<group>"; };
+		250DA4206916EBFD74AB1E6E0BE3553D /* ConnectResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ConnectResponse.h; sourceTree = "<group>"; };
 		2AFDD09FEA79AA1872B327043D3305FD /* Pods-BleSampleApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BleSampleApp-dummy.m"; sourceTree = "<group>"; };
-		2C2D91CA2C0556BA4407932BCFFD814E /* NetServiceBrowserDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = NetServiceBrowserDelegate.m; sourceTree = "<group>"; };
-		336CA12ECB82D1B6B7682E78F457C2FF /* Enum.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Enum.h; sourceTree = "<group>"; };
 		359D7D82AD57CE101F9E197BE4FDCB10 /* Pods-BleSampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BleSampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		36A82BD4B1EC2337DEDA523E2449A5A0 /* Pods-BleSampleApp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BleSampleApp-umbrella.h"; sourceTree = "<group>"; };
-		3A9F4D3353CEB97947061C2A83C22AB3 /* ConnectResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ConnectResponse.h; sourceTree = "<group>"; };
-		3D656D26287D6CC5002CEEBFD1F43DD4 /* NSString+IntFromHexString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+IntFromHexString.h"; sourceTree = "<group>"; };
-		4160D2F93D47ED97606F77200B34D656 /* BleUnitySender.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BleUnitySender.h; sourceTree = "<group>"; };
 		45AB4A59EB76E07115CAB8B4F96FACC9 /* Pods-BleSampleApp-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BleSampleApp-Info.plist"; sourceTree = "<group>"; };
+		4955BC25632EEBC4D0B9E3B68D500059 /* BleUnitySender.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BleUnitySender.h; sourceTree = "<group>"; };
 		49C17DA4FEA0B181B4BB6FA6EA579F87 /* Pods-BleSampleApp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BleSampleApp-frameworks.sh"; sourceTree = "<group>"; };
 		539FAA9A22FB456A7E386152E9499E8C /* Pods-BleSampleApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-BleSampleApp.modulemap"; sourceTree = "<group>"; };
 		5628B92CF1F534A91A396179FAC170E5 /* Pods_BleSampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BleSampleApp.framework; path = "Pods-BleSampleApp.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		566ACB99DCD4EB6C07502A6AECA5A8D4 /* BleUnitySender.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BleUnitySender.m; sourceTree = "<group>"; };
 		5BF3107F8E06930E74175E5120E623CE /* Pods-BleSampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BleSampleApp.release.xcconfig"; sourceTree = "<group>"; };
+		68A4978CD10CA45F04E1E6AC6E3A52AA /* NSString+IntFromHexString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+IntFromHexString.m"; sourceTree = "<group>"; };
+		71B6087BAA24CCFDF39C89B56B287B1C /* SwiftPlugin-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftPlugin-Info.plist"; sourceTree = "<group>"; };
+		7221032D0065E54092B20FC76590AAB8 /* SwiftPlugin-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftPlugin-umbrella.h"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		75C534FFD361A9BBCF81F770A6FB33D9 /* SwiftPlugin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftPlugin.debug.xcconfig; sourceTree = "<group>"; };
-		7A2213BCEC07D3511861C963D0836DA3 /* NSString+IntFromHexString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+IntFromHexString.m"; sourceTree = "<group>"; };
-		7B5C6EDE7D9ECD8FFFB621F4BD9A58E0 /* SwiftPlugin-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftPlugin-umbrella.h"; sourceTree = "<group>"; };
-		8710AF281D9AA1D1B70C73599680A249 /* DeviceData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DeviceData.m; sourceTree = "<group>"; };
-		8B7D9CEDFC5EE93674795B51D248F4CE /* SwiftPlugin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftPlugin.release.xcconfig; sourceTree = "<group>"; };
-		8F2D8B90F76CA44A5C5291D448D771FB /* SwiftPlugin.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = SwiftPlugin.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		91A16443AE6FBB392F0AC3B8159C6550 /* SwiftPlugin-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftPlugin-prefix.pch"; sourceTree = "<group>"; };
-		94AC83E5F77749F68646B8F2B1EF29B3 /* BloodPressureData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BloodPressureData.h; sourceTree = "<group>"; };
+		7C802B3CBD5AE1A067292E2F134D8650 /* BloodPressureData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BloodPressureData.h; sourceTree = "<group>"; };
+		80B76FAF96786D24C365D8D4437379F4 /* SwiftPlugin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftPlugin.release.xcconfig; sourceTree = "<group>"; };
+		8631BC135A3CB36086EE914DE1539724 /* OhqBluetoothManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = OhqBluetoothManager.h; sourceTree = "<group>"; };
+		8C3957236384408C8252B89674DFE375 /* SwiftPlugin.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = SwiftPlugin.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		90C04CC9D275752E9546F7D6F310F009 /* SwiftPlugin.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftPlugin.modulemap; sourceTree = "<group>"; };
+		97DC638451344676E19A4DD2C3104AA6 /* NSString+IntFromHexString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+IntFromHexString.h"; sourceTree = "<group>"; };
 		98F5010D6C7DB30BBADCFC5D10566185 /* Pods-BleSampleApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BleSampleApp-acknowledgements.plist"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		B993744989342A777D4144F48CE29F2A /* NetServiceBrowserDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NetServiceBrowserDelegate.h; sourceTree = "<group>"; };
-		D865B59CE064C3D3B2BBDE149FA475CD /* SwiftPlugin-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftPlugin-Info.plist"; sourceTree = "<group>"; };
-		DCEB9B39B0B585EDE8E58BD7D11C9CC6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		A3D13869369FD0C50595C870381CBFD6 /* BloodPressureData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BloodPressureData.m; sourceTree = "<group>"; };
+		A3D6AA6D9D77E97E812D94EAAE36B19B /* SwiftPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SwiftPlugin.h; path = SwiftPlugin/SwiftPlugin.h; sourceTree = "<group>"; };
+		AA27FE31E0C0CCC3057465CA1248B3DF /* OhqBluetoothManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = OhqBluetoothManager.m; sourceTree = "<group>"; };
+		AAF80CFF908F3CC31475E6B0724108E4 /* Enum.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Enum.h; sourceTree = "<group>"; };
 		E2C928DAADCE149EB4E5A5CE1F6959EA /* Pods-BleSampleApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BleSampleApp-acknowledgements.markdown"; sourceTree = "<group>"; };
-		E920CDE2FBDB833BDB8EAC1166E75EF7 /* DeviceData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DeviceData.h; sourceTree = "<group>"; };
+		EBC7AB903B65CCEA6045D567243FC0D8 /* DeviceData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DeviceData.m; sourceTree = "<group>"; };
+		FAFCFF308ED0C0F3B8C70F317A96CDB4 /* SwiftPlugin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftPlugin.debug.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,43 +85,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BBD6BB8D0907E607216AD6791D1E6AA8 /* Frameworks */ = {
+		53E501774037A3C5A40332029DFBE275 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				166EF9BE17E59E1C2F1E9B4CD292044A /* Foundation.framework in Frameworks */,
+				E54D4F8377EEE56050DCC86B7FE85AD4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		02F7046702BE1A62075C2ABA8B97EA75 /* Support Files */ = {
+		14588BEF89359B3E8645541FE0C73610 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				1775D384150E3B232240E81609A6CA0A /* SwiftPlugin.modulemap */,
-				2150D4F570FD0D83F8F96CF3C17F087F /* SwiftPlugin-dummy.m */,
-				D865B59CE064C3D3B2BBDE149FA475CD /* SwiftPlugin-Info.plist */,
-				91A16443AE6FBB392F0AC3B8159C6550 /* SwiftPlugin-prefix.pch */,
-				7B5C6EDE7D9ECD8FFFB621F4BD9A58E0 /* SwiftPlugin-umbrella.h */,
-				75C534FFD361A9BBCF81F770A6FB33D9 /* SwiftPlugin.debug.xcconfig */,
-				8B7D9CEDFC5EE93674795B51D248F4CE /* SwiftPlugin.release.xcconfig */,
+				128E3F19C98353EC99AE13D14F56568E /* README.md */,
+				8C3957236384408C8252B89674DFE375 /* SwiftPlugin.podspec */,
 			);
-			name = "Support Files";
-			path = "Pods/Target Support Files/SwiftPlugin";
+			name = Pod;
 			sourceTree = "<group>";
-		};
-		1EC2CE9F8ABF1A6B371096F86CD700D3 /* SwiftPlugin */ = {
-			isa = PBXGroup;
-			children = (
-				032D7A153897774EE7E26E58E349D45C /* SwiftPlugin.h */,
-				FB43E96018608511CCF6538475F90660 /* Pod */,
-				D3F75AC39B362051589EA0412B8A5D4B /* Source */,
-				02F7046702BE1A62075C2ABA8B97EA75 /* Support Files */,
-			);
-			name = SwiftPlugin;
-			path = /Users/macintosh/Desktop/Project/OHQ/Source/BleUnityPlugin;
-			sourceTree = "<absolute>";
 		};
 		24BEB357C56FB82A51466195BEDC94BD /* Products */ = {
 			isa = PBXGroup;
@@ -139,7 +117,7 @@
 		31AF04E5D875DD8D3604EEC60CA26144 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1EC2CE9F8ABF1A6B371096F86CD700D3 /* SwiftPlugin */,
+				7A2FFDB6555B51CD8E97FCD9B37DC81A /* SwiftPlugin */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
@@ -152,19 +130,61 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		7B463EFCD94DAA5D0B0898DFD68674F8 /* Model */ = {
+		58581EA50C31CA2C41ECB8377BC29684 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				94AC83E5F77749F68646B8F2B1EF29B3 /* BloodPressureData.h */,
-				28A224E0E683CC441EA9C4FE37C3B019 /* BloodPressureData.m */,
-				3A9F4D3353CEB97947061C2A83C22AB3 /* ConnectResponse.h */,
-				E920CDE2FBDB833BDB8EAC1166E75EF7 /* DeviceData.h */,
-				8710AF281D9AA1D1B70C73599680A249 /* DeviceData.m */,
-				336CA12ECB82D1B6B7682E78F457C2FF /* Enum.h */,
+				7C802B3CBD5AE1A067292E2F134D8650 /* BloodPressureData.h */,
+				A3D13869369FD0C50595C870381CBFD6 /* BloodPressureData.m */,
+				250DA4206916EBFD74AB1E6E0BE3553D /* ConnectResponse.h */,
+				0FD3DA9AFFDDC84188ECE4141A5E527E /* DeviceData.h */,
+				EBC7AB903B65CCEA6045D567243FC0D8 /* DeviceData.m */,
+				AAF80CFF908F3CC31475E6B0724108E4 /* Enum.h */,
 			);
 			name = Model;
 			path = Model;
 			sourceTree = "<group>";
+		};
+		6C21A9E975FB73D6DC889EF891778F7D /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				4955BC25632EEBC4D0B9E3B68D500059 /* BleUnitySender.h */,
+				1EE399FF01432B68A7D42D0CB60C6437 /* BleUnitySender.m */,
+				97DC638451344676E19A4DD2C3104AA6 /* NSString+IntFromHexString.h */,
+				68A4978CD10CA45F04E1E6AC6E3A52AA /* NSString+IntFromHexString.m */,
+				8631BC135A3CB36086EE914DE1539724 /* OhqBluetoothManager.h */,
+				AA27FE31E0C0CCC3057465CA1248B3DF /* OhqBluetoothManager.m */,
+				58581EA50C31CA2C41ECB8377BC29684 /* Model */,
+			);
+			name = Source;
+			path = SwiftPlugin/Source;
+			sourceTree = "<group>";
+		};
+		7589A1A15702DA447C8F4E4534F37B1D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				90C04CC9D275752E9546F7D6F310F009 /* SwiftPlugin.modulemap */,
+				1253FF8102FEF94ACC1F3B49F4C58DF7 /* SwiftPlugin-dummy.m */,
+				71B6087BAA24CCFDF39C89B56B287B1C /* SwiftPlugin-Info.plist */,
+				00413AF70B5C93BFA910447714E5FB8F /* SwiftPlugin-prefix.pch */,
+				7221032D0065E54092B20FC76590AAB8 /* SwiftPlugin-umbrella.h */,
+				FAFCFF308ED0C0F3B8C70F317A96CDB4 /* SwiftPlugin.debug.xcconfig */,
+				80B76FAF96786D24C365D8D4437379F4 /* SwiftPlugin.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Pods/Target Support Files/SwiftPlugin";
+			sourceTree = "<group>";
+		};
+		7A2FFDB6555B51CD8E97FCD9B37DC81A /* SwiftPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				A3D6AA6D9D77E97E812D94EAAE36B19B /* SwiftPlugin.h */,
+				14588BEF89359B3E8645541FE0C73610 /* Pod */,
+				6C21A9E975FB73D6DC889EF891778F7D /* Source */,
+				7589A1A15702DA447C8F4E4534F37B1D /* Support Files */,
+			);
+			name = SwiftPlugin;
+			path = /Users/macintosh/Desktop/Project/OHQ/Source/BleUnityPlugin;
+			sourceTree = "<absolute>";
 		};
 		9D687670D63A06B548AEA22A89D81A89 /* Targets Support Files */ = {
 			isa = PBXGroup;
@@ -193,23 +213,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D3F75AC39B362051589EA0412B8A5D4B /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				4160D2F93D47ED97606F77200B34D656 /* BleUnitySender.h */,
-				566ACB99DCD4EB6C07502A6AECA5A8D4 /* BleUnitySender.m */,
-				B993744989342A777D4144F48CE29F2A /* NetServiceBrowserDelegate.h */,
-				2C2D91CA2C0556BA4407932BCFFD814E /* NetServiceBrowserDelegate.m */,
-				3D656D26287D6CC5002CEEBFD1F43DD4 /* NSString+IntFromHexString.h */,
-				7A2213BCEC07D3511861C963D0836DA3 /* NSString+IntFromHexString.m */,
-				0821997451437AF61E3CA3A323776774 /* OhqBluetoothManager.h */,
-				06C7D957DFD1DB892F4E61D9A1EB4C72 /* OhqBluetoothManager.m */,
-				7B463EFCD94DAA5D0B0898DFD68674F8 /* Model */,
-			);
-			name = Source;
-			path = SwiftPlugin/Source;
-			sourceTree = "<group>";
-		};
 		DEA6320A997A91C71E16696C00E52581 /* Pods-BleSampleApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,32 +230,22 @@
 			path = "Target Support Files/Pods-BleSampleApp";
 			sourceTree = "<group>";
 		};
-		FB43E96018608511CCF6538475F90660 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				DCEB9B39B0B585EDE8E58BD7D11C9CC6 /* README.md */,
-				8F2D8B90F76CA44A5C5291D448D771FB /* SwiftPlugin.podspec */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		82D4A44001FA695EEAECBBDD4C272AE9 /* Headers */ = {
+		5E9230432DF172DD4FA1E84851DFC8BC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F159E2F162A055A0CBFEAEFCE5F907EB /* BleUnitySender.h in Headers */,
-				A3F9618446259A2DB74F3E746572CFAC /* BloodPressureData.h in Headers */,
-				ACDFBF7C053630AE18616EFAB421BDC9 /* ConnectResponse.h in Headers */,
-				19DDC6DE4F7F33FCFAA17E5644D8AC33 /* DeviceData.h in Headers */,
-				F8968B1F9CD393FFC2FEDD7AC5DA268C /* Enum.h in Headers */,
-				3A27B217470647FB6511FEBF4B18F334 /* NetServiceBrowserDelegate.h in Headers */,
-				A2913715ED79043909847F61C18537E5 /* NSString+IntFromHexString.h in Headers */,
-				1F5192156A0A4FCA45300A53C6CD2581 /* OhqBluetoothManager.h in Headers */,
-				7BE7DC0BA52A32B8EDDF6535A9C10B12 /* SwiftPlugin-umbrella.h in Headers */,
-				56186537CFC86DE9005F22B21020D69B /* SwiftPlugin.h in Headers */,
+				3A0EC66CA20994DD957211F1E361304B /* BleUnitySender.h in Headers */,
+				D96A6D193FF35C8B872EE1408E0EEE13 /* BloodPressureData.h in Headers */,
+				3D6540AD725AE51F6F9845F58910F270 /* ConnectResponse.h in Headers */,
+				F4E3504DF84F8FCA165395EB3996CCD8 /* DeviceData.h in Headers */,
+				3C5B308360D59AD7585DB6C8B6BF994C /* Enum.h in Headers */,
+				64A17C2895855E8CE8C135ACC5C14B24 /* NSString+IntFromHexString.h in Headers */,
+				ADB36DF6BD74F512E300A705AD8E1019 /* OhqBluetoothManager.h in Headers */,
+				C1AFA60247E383D2427A2730B90DEB44 /* SwiftPlugin-umbrella.h in Headers */,
+				67E27F5B12EDEC248208BD796A3EE23C /* SwiftPlugin.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,12 +262,12 @@
 /* Begin PBXNativeTarget section */
 		1DAB329440FE2CCCC12184DE6B73E0A2 /* SwiftPlugin */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 82218B789E2C0214BDB0325DB8DDC68D /* Build configuration list for PBXNativeTarget "SwiftPlugin" */;
+			buildConfigurationList = 834A43830196D4A8DA5D0E9825EDBC00 /* Build configuration list for PBXNativeTarget "SwiftPlugin" */;
 			buildPhases = (
-				82D4A44001FA695EEAECBBDD4C272AE9 /* Headers */,
-				936F6918133396FE34D652FCC014F467 /* Sources */,
-				BBD6BB8D0907E607216AD6791D1E6AA8 /* Frameworks */,
-				31AFEFAFF8C224ADD5736D4228471851 /* Resources */,
+				5E9230432DF172DD4FA1E84851DFC8BC /* Headers */,
+				1AD7BA7352198F8AC69BEC2E3F938440 /* Sources */,
+				53E501774037A3C5A40332029DFBE275 /* Frameworks */,
+				43E772C346591534DD7B978EDEF716B8 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -297,7 +290,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				8BFA3BA7C240C631C19B8C927074C0D3 /* PBXTargetDependency */,
+				5DC022089DBDE4E2B2D03CC5FEF1CBB5 /* PBXTargetDependency */,
 			);
 			name = "Pods-BleSampleApp";
 			productName = "Pods-BleSampleApp";
@@ -333,7 +326,7 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		31AFEFAFF8C224ADD5736D4228471851 /* Resources */ = {
+		43E772C346591534DD7B978EDEF716B8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -350,6 +343,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1AD7BA7352198F8AC69BEC2E3F938440 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6422D9BC1B5F27F393A2B8A60A507464 /* BleUnitySender.m in Sources */,
+				0282F815FE48CC0968DB61C452758771 /* BloodPressureData.m in Sources */,
+				CAB18DEC7F88D216E97C24D9F7153027 /* DeviceData.m in Sources */,
+				0755A06AF90C2578E5F8A60FCC3371D2 /* NSString+IntFromHexString.m in Sources */,
+				A6879E9197139E57EAE7574E56E10CB2 /* OhqBluetoothManager.m in Sources */,
+				E12EC64EA3290701AE5E44AA0330D536 /* SwiftPlugin-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3E22C0A9FEA5EC9AD7F49F8E48DF985B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -358,28 +364,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		936F6918133396FE34D652FCC014F467 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4D1061701474F627B7AAD6D306243E07 /* BleUnitySender.m in Sources */,
-				43DAD1CA09127C61F62434A184E8F78A /* BloodPressureData.m in Sources */,
-				07D2467861FD53CF34922EB0FC8C68F9 /* DeviceData.m in Sources */,
-				5CCD84A029B67D8C92F5DF2FDDD93428 /* NetServiceBrowserDelegate.m in Sources */,
-				868AC043C1EA99D2262A3C2A3F229997 /* NSString+IntFromHexString.m in Sources */,
-				274F8FC3C06FDBCAD2A569CDC86EDE8B /* OhqBluetoothManager.m in Sources */,
-				6A35AEA65BDE2E1CA7482CE961B1282B /* SwiftPlugin-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8BFA3BA7C240C631C19B8C927074C0D3 /* PBXTargetDependency */ = {
+		5DC022089DBDE4E2B2D03CC5FEF1CBB5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftPlugin;
 			target = 1DAB329440FE2CCCC12184DE6B73E0A2 /* SwiftPlugin */;
-			targetProxy = 40ADF728891916205CC6CB14978E64B7 /* PBXContainerItemProxy */;
+			targetProxy = 7D4652BE1D5CA1952F11252A89E43A17 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -421,6 +413,77 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		767326E866421E9DCB273BA88EAB2B39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80B76FAF96786D24C365D8D4437379F4 /* SwiftPlugin.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftPlugin/SwiftPlugin-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftPlugin/SwiftPlugin-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftPlugin/SwiftPlugin.modulemap";
+				PRODUCT_MODULE_NAME = SwiftPlugin;
+				PRODUCT_NAME = SwiftPlugin;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8C0B542386B16DE05E41E93A38370551 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FAFCFF308ED0C0F3B8C70F317A96CDB4 /* SwiftPlugin.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftPlugin/SwiftPlugin-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftPlugin/SwiftPlugin-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftPlugin/SwiftPlugin.modulemap";
+				PRODUCT_MODULE_NAME = SwiftPlugin;
+				PRODUCT_NAME = SwiftPlugin;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		903A0004D3E6651EFD5D2E16214D101B /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -481,42 +544,6 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
-		};
-		917F2982126511CD15758A36D48AEFED /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8B7D9CEDFC5EE93674795B51D248F4CE /* SwiftPlugin.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftPlugin/SwiftPlugin-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftPlugin/SwiftPlugin-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwiftPlugin/SwiftPlugin.modulemap";
-				PRODUCT_MODULE_NAME = SwiftPlugin;
-				PRODUCT_NAME = SwiftPlugin;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -623,41 +650,6 @@
 			};
 			name = Debug;
 		};
-		E948D6ECA54079DE0F978B34EDA49388 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75C534FFD361A9BBCF81F770A6FB33D9 /* SwiftPlugin.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftPlugin/SwiftPlugin-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftPlugin/SwiftPlugin-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwiftPlugin/SwiftPlugin.modulemap";
-				PRODUCT_MODULE_NAME = SwiftPlugin;
-				PRODUCT_NAME = SwiftPlugin;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -679,11 +671,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		82218B789E2C0214BDB0325DB8DDC68D /* Build configuration list for PBXNativeTarget "SwiftPlugin" */ = {
+		834A43830196D4A8DA5D0E9825EDBC00 /* Build configuration list for PBXNativeTarget "SwiftPlugin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E948D6ECA54079DE0F978B34EDA49388 /* Debug */,
-				917F2982126511CD15758A36D48AEFED /* Release */,
+				8C0B542386B16DE05E41E93A38370551 /* Debug */,
+				767326E866421E9DCB273BA88EAB2B39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -15,7 +15,6 @@
 #import "ConnectResponse.h"
 #import "DeviceData.h"
 #import "Enum.h"
-#import "NetServiceBrowserDelegate.h"
 #import "NSString+IntFromHexString.h"
 #import "OhqBluetoothManager.h"
 #import "SwiftPlugin.h"

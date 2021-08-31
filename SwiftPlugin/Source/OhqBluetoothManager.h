@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 - (void)didBleManagerChangeStateWith:(BleManagerState)result;
+- (void)didScanTimeOut;
 - (void)didConnectPeripheralWith:(BleConnectDeviceResponse)state;
 - (void)didDiscoverZealLe0:(CBPeripheral *)device;
 - (void)didReceiveBloodPressureData:(NSString *)data;
@@ -35,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)startScan;
 - (void)stopScan;
 - (NSArray<CBPeripheral *> *)retrieveConnectedDevices;
-- (NSString *) retrieveConnectedPeripherals;
+- (NSString *)retrieveConnectedPeripherals;
 - (void)connectToScanDeviceWith:(NSString *)identifier;
 - (void)startMeasureBloodPressure;
 - (void)disconnectDevice;

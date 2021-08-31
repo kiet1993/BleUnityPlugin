@@ -17,6 +17,11 @@ static NSString* recieverObjectName = @"BleReceiver";
 //    UnitySendMessage([recieverObjectName UTF8String], [@"didBleManagerChangeStateWith" UTF8String], [state UTF8String]);
 }
 
++ (void)didScanTimeOut
+{
+//    UnitySendMessage([recieverObjectName UTF8String], [@"didScanTimeOut" UTF8String], nil);
+}
+
 + (void)didConnectPeripheralWith:(NSString *)state
 {
 //    UnitySendMessage([recieverObjectName UTF8String], [@"didConnectPeripheralWith" UTF8String], [state UTF8String]);

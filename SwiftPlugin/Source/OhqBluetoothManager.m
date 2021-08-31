@@ -17,6 +17,7 @@
 #import "Model/Enum.h"
 #import "Model/BloodPressureData.h"
 #import "NSString+IntFromHexString.h"
+#import "BleUnitySender.h"
 
 @interface OhqBluetoothManager () <CBCentralManagerDelegate, CBPeripheralDelegate> {
     NSMutableArray * peripherals;
@@ -115,6 +116,8 @@
 -(void)onTick:(NSTimer *)timer {
     if (countTime >= SCAN_TIMEOUT) {
         [self stopScan];
+        [self.delegate didScanTimeOut];
+        [BleUnitySender didScanTimeOut];
     } else {
         countTime += 1;
     }
@@ -230,10 +233,12 @@
             processingState = BleStateNormal;
             [self writeData:BleOrderSetup];
             [self.delegate didUpdateMeasureStep:[NSString stringWithFormat:@"%d/%d",1,TOTAL_STEP]];
+            [BleUnitySender didUpdateMeasureStep:[NSString stringWithFormat:@"%d/%d",1,TOTAL_STEP]];
             break;
         case BleResponsePowerOff:
             processingState = BleStateOff;
             [self.delegate deviceDidChangeStatePowerOff];
+            [BleUnitySender deviceDidChangeStatePowerOff];
             break;
         case BleResponseStandBy:
             processingState = BleStateWait;
@@ -245,6 +250,7 @@
                 [self writeData:BleOrderPowerOff];
             } else {
                 [self.delegate didUpdateMeasureStep:[NSString stringWithFormat:@"%d/%d",2,TOTAL_STEP]];
+                [BleUnitySender didUpdateMeasureStep:[NSString stringWithFormat:@"%d/%d",2,TOTAL_STEP]];
                 [self writeData:BleOrderMeasureBloodPressure];
             }
             processingState = BleStateReady;
@@ -256,14 +262,17 @@
             break;
         case BleResponseBloodPressureResult1:
             [self.delegate didUpdateMeasureStep:[NSString stringWithFormat:@"%d/%d",4,TOTAL_STEP]];
+            [BleUnitySender didUpdateMeasureStep:[NSString stringWithFormat:@"%d/%d",4,TOTAL_STEP]];
             [self parseBloodDataWith:responseString];
             break;
         case BleResponseBloodPressureResult2:
             [self.delegate didUpdateMeasureStep:[NSString stringWithFormat:@"%d/%d",5,TOTAL_STEP]];
+            [BleUnitySender didUpdateMeasureStep:[NSString stringWithFormat:@"%d/%d",5,TOTAL_STEP]];
             [self parseBloodDataWith:responseString];
             break;
         case BleResponseMeasureEnd:
             [self.delegate didUpdateMeasureStep:[NSString stringWithFormat:@"%d/%d",3,TOTAL_STEP]];
+            [BleUnitySender didUpdateMeasureStep:[NSString stringWithFormat:@"%d/%d",3,TOTAL_STEP]];
             break;
         case BleResponseUnknown:
             break;
@@ -290,6 +299,7 @@
         bloodData.irregularPulseRate = [stringResult stringToIntWith:NSMakeRange(2, 2)];
         bloodData.isCuffFitting = [stringResult stringToIntWith:NSMakeRange(8, 2)] == 1;
         [self.delegate didReceiveBloodPressureData:[NSString stringWithFormat:@"%@", [bloodData toNSDictionary]]];
+        [BleUnitySender didReceiveBloodPressureData:[NSString stringWithFormat:@"%@", [bloodData toNSDictionary]]];
     } else {
         NSLog(@"Unsupport blood result format");
     }
@@ -301,8 +311,10 @@
 {
     if (central.state == CBManagerStatePoweredOn) {
         [self.delegate didBleManagerChangeStateWith:BleManagerStatePoweredOn];
+        [BleUnitySender didBleManagerChangeStateWith:[NSString stringWithFormat:@"%li", BleManagerStatePoweredOn]];
     } else {
         [self.delegate didBleManagerChangeStateWith:BleManagerStatePoweredOff];
+        [BleUnitySender didBleManagerChangeStateWith:[NSString stringWithFormat:@"%li", BleManagerStatePoweredOff]];
     }
 }
 
@@ -314,6 +326,17 @@
         NSLog(@"%@", [NSString stringWithFormat:@"--didDiscoverPeripheral %@", peripheral.name]);
         [peripherals addObject:peripheral];
         [self.delegate didDiscoverZealLe0:peripheral];
+        
+        // Notify to Unity
+        DeviceData * device = [[DeviceData alloc] initWith:peripheral.name uuid:peripheral.identifier.UUIDString];
+        NSError * err;
+        NSData * jsonData = [NSJSONSerialization  dataWithJSONObject:device options:0 error:&err];
+        NSString * myString = [[NSString alloc] initWithData:jsonData   encoding:NSUTF8StringEncoding];
+        if (err == nil) {
+            [BleUnitySender didDiscoverZealLe0:myString];
+        } else {
+            NSLog(@"%@", [NSString stringWithFormat:@"Object to json string error: %@", err.localizedDescription]);
+        }
     }
 }
 
@@ -348,6 +371,7 @@ didFailToConnectPeripheral:(CBPeripheral *)peripheral
     NSLog(@"Failed to connect");
     [self cleanup];
     [self.delegate didConnectPeripheralWith:BleConnectDeviceResponseFailed];
+    [BleUnitySender didConnectPeripheralWith:[NSString stringWithFormat:@"%li", BleConnectDeviceResponseFailed]];
 }
 
 #pragma mark - CBPeripheralDelegate delegate methods
@@ -359,6 +383,7 @@ didDiscoverServices:(NSError *)error
     if (error) {
         [self cleanup];
         [self.delegate didConnectPeripheralWith:BleConnectDeviceResponseFailed];
+        [BleUnitySender didConnectPeripheralWith:[NSString stringWithFormat:@"%li", BleConnectDeviceResponseFailed]];
         return;
     }
     
@@ -387,6 +412,7 @@ didDiscoverCharacteristicsForService:(CBService *)service
     if (error) {
         [self cleanup];
         [self.delegate didConnectPeripheralWith:BleConnectDeviceResponseFailed];
+        [BleUnitySender didConnectPeripheralWith:[NSString stringWithFormat:@"%li", BleConnectDeviceResponseFailed]];
         return;
     }
      
@@ -427,6 +453,7 @@ didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
     if (characteristic.isNotifying) {
         NSLog(@"Notification began on %@", characteristic);
         [self.delegate didConnectPeripheralWith:BleConnectDeviceResponseSuccess];
+        [BleUnitySender didConnectPeripheralWith:[NSString stringWithFormat:@"%li", BleConnectDeviceResponseSuccess]];
     } else {
         // Notification has stopped
         [self cleanup];

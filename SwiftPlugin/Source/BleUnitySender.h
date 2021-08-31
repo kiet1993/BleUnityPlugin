@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BleUnitySender : NSObject
 + (void)didBleManagerChangeStateWith:(NSString *)state;
++ (void)didScanTimeOut;
 + (void)didConnectPeripheralWith:(NSString *)state;
 + (void)didDiscoverZealLe0:(NSString *)device;
 + (void)didReceiveBloodPressureData:(NSString *)data;

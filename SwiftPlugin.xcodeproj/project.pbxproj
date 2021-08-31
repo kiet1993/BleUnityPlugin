@@ -10,8 +10,6 @@
 		A74CD3BD291038A7E7DD12B7 /* Pods_BleSampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF67F69993F3FF6D4D4C3712 /* Pods_BleSampleApp.framework */; };
 		E236141126C50F0900BE12E9 /* OhqBluetoothManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E236140F26C50F0900BE12E9 /* OhqBluetoothManager.h */; };
 		E236141226C50F0900BE12E9 /* OhqBluetoothManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E236141026C50F0900BE12E9 /* OhqBluetoothManager.m */; };
-		E236141526C5110900BE12E9 /* NetServiceBrowserDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = E236141326C5110900BE12E9 /* NetServiceBrowserDelegate.h */; };
-		E236141626C5110900BE12E9 /* NetServiceBrowserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E236141426C5110900BE12E9 /* NetServiceBrowserDelegate.m */; };
 		E236141826C5119C00BE12E9 /* SwiftPluginBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = E236141726C5119C00BE12E9 /* SwiftPluginBridge.mm */; };
 		E236142126C58D9200BE12E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E236142026C58D9200BE12E9 /* AppDelegate.m */; };
 		E236142426C58D9200BE12E9 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E236142326C58D9200BE12E9 /* SceneDelegate.m */; };
@@ -42,8 +40,6 @@
 		E23613FF26C4FC4700BE12E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E236140F26C50F0900BE12E9 /* OhqBluetoothManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OhqBluetoothManager.h; sourceTree = "<group>"; };
 		E236141026C50F0900BE12E9 /* OhqBluetoothManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OhqBluetoothManager.m; sourceTree = "<group>"; };
-		E236141326C5110900BE12E9 /* NetServiceBrowserDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetServiceBrowserDelegate.h; sourceTree = "<group>"; };
-		E236141426C5110900BE12E9 /* NetServiceBrowserDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetServiceBrowserDelegate.m; sourceTree = "<group>"; };
 		E236141726C5119C00BE12E9 /* SwiftPluginBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SwiftPluginBridge.mm; sourceTree = "<group>"; };
 		E236141D26C58D9200BE12E9 /* BleSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BleSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E236141F26C58D9200BE12E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -141,8 +137,6 @@
 				E236143726C6176000BE12E9 /* Model */,
 				E236140F26C50F0900BE12E9 /* OhqBluetoothManager.h */,
 				E236141026C50F0900BE12E9 /* OhqBluetoothManager.m */,
-				E236141326C5110900BE12E9 /* NetServiceBrowserDelegate.h */,
-				E236141426C5110900BE12E9 /* NetServiceBrowserDelegate.m */,
 				E236141726C5119C00BE12E9 /* SwiftPluginBridge.mm */,
 				E2C1267326D8C50200179FCB /* NSString+IntFromHexString.h */,
 				E2C1267426D8C50200179FCB /* NSString+IntFromHexString.m */,
@@ -192,7 +186,6 @@
 			files = (
 				E278616326C65CA0000BD84F /* ConnectResponse.h in Headers */,
 				E236141126C50F0900BE12E9 /* OhqBluetoothManager.h in Headers */,
-				E236141526C5110900BE12E9 /* NetServiceBrowserDelegate.h in Headers */,
 				E278616726C65DB1000BD84F /* BloodPressureData.h in Headers */,
 				E278615B26C65933000BD84F /* DeviceData.h in Headers */,
 				E236143626C591C300BE12E9 /* SwiftPlugin.h in Headers */,
@@ -349,7 +342,6 @@
 				E236141826C5119C00BE12E9 /* SwiftPluginBridge.mm in Sources */,
 				E2C1267626D8C50200179FCB /* NSString+IntFromHexString.m in Sources */,
 				E236141226C50F0900BE12E9 /* OhqBluetoothManager.m in Sources */,
-				E236141626C5110900BE12E9 /* NetServiceBrowserDelegate.m in Sources */,
 				E2615ABC26DCE8A800E3A4BA /* DeviceData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

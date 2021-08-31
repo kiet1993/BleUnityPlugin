@@ -86,6 +86,12 @@
             break;
     }
 }
+
+- (void)didScanTimeOut
+{
+    NSLog(@"didScanTimeOut");
+}
+
 - (void)didConnectPeripheralWith:(BleConnectDeviceResponse)state {
     switch (state) {
         case BleConnectDeviceResponseSuccess:
