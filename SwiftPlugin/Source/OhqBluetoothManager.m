@@ -299,7 +299,16 @@
         bloodData.irregularPulseRate = [stringResult stringToIntWith:NSMakeRange(2, 2)];
         bloodData.isCuffFitting = [stringResult stringToIntWith:NSMakeRange(8, 2)] == 1;
         [self.delegate didReceiveBloodPressureData:[NSString stringWithFormat:@"%@", [bloodData toNSDictionary]]];
-        [BleUnitySender didReceiveBloodPressureData:[NSString stringWithFormat:@"%@", [bloodData toNSDictionary]]];
+        
+        // Send data to Unity
+        NSError * err;
+        NSData * jsonData = [NSJSONSerialization  dataWithJSONObject:bloodData.toNSDictionary options:0 error:&err];
+        NSString * myString = [[NSString alloc] initWithData:jsonData   encoding:NSUTF8StringEncoding];
+        if (err == nil) {
+            [BleUnitySender didReceiveBloodPressureData:[NSString stringWithFormat:@"%@", myString]];
+        } else {
+            NSLog(@"%@", err.localizedDescription);
+        }
     } else {
         NSLog(@"Unsupport blood result format");
     }
