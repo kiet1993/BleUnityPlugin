@@ -147,7 +147,7 @@
     NSMutableArray *arrayObject = [[NSMutableArray alloc] init];
     [connectedDevices enumerateObjectsUsingBlock:^(CBPeripheral * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             DeviceData * device = [[DeviceData alloc] initWith:obj.name uuid:obj.identifier.UUIDString];
-        [arrayObject addObject:device];
+        [arrayObject addObject:device.toNSDictionary];
         }];
     NSError* error = nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:arrayObject options:NSJSONWritingPrettyPrinted error:&error];
@@ -330,7 +330,7 @@
         // Notify to Unity
         DeviceData * device = [[DeviceData alloc] initWith:peripheral.name uuid:peripheral.identifier.UUIDString];
         NSError * err;
-        NSData * jsonData = [NSJSONSerialization  dataWithJSONObject:device options:0 error:&err];
+        NSData * jsonData = [NSJSONSerialization  dataWithJSONObject:device.toNSDictionary options:0 error:&err];
         NSString * myString = [[NSString alloc] initWithData:jsonData   encoding:NSUTF8StringEncoding];
         if (err == nil) {
             [BleUnitySender didDiscoverZealLe0:myString];
