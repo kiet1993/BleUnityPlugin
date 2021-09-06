@@ -70,9 +70,9 @@
 }
 #pragma mark - OhqBluetoothManagerDelegate delegate methods
 
-- (void)didBleManagerChangeStateWith:(BleManagerState)result {
+- (void)didBleManagerChangeStateWith:(CBManagerState)result {
     switch (result) {
-        case BleManagerStatePoweredOn:
+        case CBManagerStatePoweredOn:
             [deviceList removeAllObjects];
             [deviceList addObjectsFromArray: [bleManager retrieveConnectedDevices]];
             if ([deviceList count] > 0) {
@@ -81,9 +81,8 @@
                 [bleManager startScan];
             }
             break;
-        case BleManagerStatePoweredOff:
-            NSLog(@"BleManagerStatePoweredOff");
-            break;
+        default:
+            NSLog(@"%li", result);
     }
 }
 
