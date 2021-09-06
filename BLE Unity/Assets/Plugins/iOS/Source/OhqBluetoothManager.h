@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol OhqBluetoothManagerDelegate <NSObject>
 
 @optional
-- (void)didBleManagerChangeStateWith:(BleManagerState)result;
+- (void)didBleManagerChangeStateWith:(CBManagerState)result;
 - (void)didScanTimeOut;
 - (void)didConnectPeripheralWith:(BleConnectDeviceResponse)state;
 - (void)didDiscoverZealLe0:(CBPeripheral *)device;

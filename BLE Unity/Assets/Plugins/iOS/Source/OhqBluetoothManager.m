@@ -89,6 +89,9 @@
 {
     if (self.centralManager == nil) {
         self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+    } else {
+        [self.delegate didBleManagerChangeStateWith:self.centralManager.state];
+        [BleUnitySender didBleManagerChangeStateWith:[NSString stringWithFormat:@"%li", self.centralManager.state]];
     }
 }
 
@@ -318,13 +321,8 @@
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central
 {
-    if (central.state == CBManagerStatePoweredOn) {
-        [self.delegate didBleManagerChangeStateWith:BleManagerStatePoweredOn];
-        [BleUnitySender didBleManagerChangeStateWith:[NSString stringWithFormat:@"%li", BleManagerStatePoweredOn]];
-    } else {
-        [self.delegate didBleManagerChangeStateWith:BleManagerStatePoweredOff];
-        [BleUnitySender didBleManagerChangeStateWith:[NSString stringWithFormat:@"%li", BleManagerStatePoweredOff]];
-    }
+    [self.delegate didBleManagerChangeStateWith:central.state];
+    [BleUnitySender didBleManagerChangeStateWith:[NSString stringWithFormat:@"%li", central.state]];
 }
 
 - (void)centralManager:(CBCentralManager *)central
