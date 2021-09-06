@@ -89,6 +89,9 @@
 {
     if (self.centralManager == nil) {
         self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+    } else {
+        [self.delegate didBleManagerChangeStateWith:self.centralManager.state];
+        [BleUnitySender didBleManagerChangeStateWith:[NSString stringWithFormat:@"%li", self.centralManager.state]];
     }
 }
 
