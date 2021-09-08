@@ -26,12 +26,14 @@
     int countTime;
     BleState processingState;
     BloodPressureData * bloodData;
+    bool needStartMeasureBloodPressure;
 }
 
 @property (nonatomic, strong) CBCentralManager *centralManager;
 @property (nonatomic, strong) CBPeripheralManager *peripheralManager;
 @property (nonatomic, strong) CBPeripheral *connectedPeripheral;
 @property (nonatomic, strong) CBCharacteristic *transferCharacteristic;
+@property (nonatomic, strong) CBCharacteristic *notifyCharacteristic;
 
 @end
 
@@ -71,6 +73,7 @@
                     if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:CHARACTERISTIC_NOTIFY_UUID]]) {
                         if (characteristic.isNotifying) {
                             [connectedPeripheral setNotifyValue:NO forCharacteristic:characteristic];
+                            self.notifyCharacteristic = nil;
                             return;
                         }
                     }
@@ -81,6 +84,7 @@
  
     [self.centralManager cancelPeripheralConnection:connectedPeripheral];
     connectedPeripheral = nil;
+    self.transferCharacteristic = nil;
     [peripherals removeAllObjects];
     processingState = BleStateNone;
 }
@@ -170,11 +174,20 @@
 }
 
 - (void)startMeasureBloodPressure {
-    bloodData = nil;
-    if (processingState == BleStateNone || processingState == BleStateOff) {
-        [self writeData:BleOrderSetup];
-    } else if(processingState == BleStateWait) {
-        [self writeData:BleOrderMeasureBloodPressure];
+    if (self.notifyCharacteristic) {
+        bloodData = nil;
+        if (processingState == BleStateNone || processingState == BleStateOff) {
+            [self writeData:BleOrderSetup];
+        } else if(processingState == BleStateWait) {
+            [self writeData:BleOrderMeasureBloodPressure];
+        }
+    } else {
+        for (CBService *service in self.connectedPeripheral.services) {
+            NSArray *characteristics = @[[CBUUID UUIDWithString:CHARACTERISTIC_NOTIFY_UUID],
+                                         [CBUUID UUIDWithString:CHARACTERISTIC_WRITE_UUID]];
+            [self.connectedPeripheral discoverCharacteristics:characteristics forService:service];
+            needStartMeasureBloodPressure = true;
+        }
     }
 }
 
@@ -267,6 +280,7 @@
             [self.delegate didUpdateMeasureStep:[NSString stringWithFormat:@"%d/%d",4,TOTAL_STEP]];
             [BleUnitySender didUpdateMeasureStep:[NSString stringWithFormat:@"%d/%d",4,TOTAL_STEP]];
             [self parseBloodDataWith:responseString];
+            processingState = BleStateBlood;
             break;
         case BleResponseBloodPressureResult2:
             [self.delegate didUpdateMeasureStep:[NSString stringWithFormat:@"%d/%d",5,TOTAL_STEP]];
@@ -426,7 +440,7 @@ didDiscoverCharacteristicsForService:(CBService *)service
     for (CBCharacteristic *characteristic in service.characteristics) {
         if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:CHARACTERISTIC_NOTIFY_UUID]]) {
             [peripheral setNotifyValue:YES forCharacteristic:characteristic];
-            self.transferCharacteristic = characteristic;
+            self.notifyCharacteristic = characteristic;
         }
         if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:CHARACTERISTIC_WRITE_UUID]]) {
             self.transferCharacteristic = characteristic;
@@ -459,8 +473,13 @@ didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
      
     if (characteristic.isNotifying) {
         NSLog(@"Notification began on %@", characteristic);
-        [self.delegate didConnectPeripheralWith:BleConnectDeviceResponseSuccess];
-        [BleUnitySender didConnectPeripheralWith:[NSString stringWithFormat:@"%li", BleConnectDeviceResponseSuccess]];
+        if (needStartMeasureBloodPressure) {
+            needStartMeasureBloodPressure = false;
+            [self startMeasureBloodPressure];
+        } else {
+            [self.delegate didConnectPeripheralWith:BleConnectDeviceResponseSuccess];
+            [BleUnitySender didConnectPeripheralWith:[NSString stringWithFormat:@"%li", BleConnectDeviceResponseSuccess]];
+        }
     } else {
         // Notification has stopped
         [self cleanup];
