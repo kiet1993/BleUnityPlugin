@@ -28,11 +28,11 @@ public class Square : MonoBehaviour
 
     void onDidBleManagerChangeState(string state) {
         Debug.Log("onDidBleManagerChangeState: state = " + state);
-        if (state == "0") {
+        if (state == "5") {
             BleReceiver.StartScan();
         }
         else {
-           Debug.Log("Iphone's bluetooth is off"); 
+           Debug.Log("Iphone's bluetooth is not On"); 
         }
     }
 
